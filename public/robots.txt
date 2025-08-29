@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nextgen-cto.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block access to sensitive areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /.well-known/
+
+# Allow access to static assets
+Allow: /_next/static/
+Allow: /favicon.ico
+Allow: /robots.txt
+Allow: /sitemap.xml

@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import YouTube from 'react-youtube';
 import { Button } from '@/components/ui/button';
 import { smoothScrollTo, fadeInUp, staggerContainer } from '@/lib/utils';
+import EnhancedYouTube from '@/components/ui/EnhancedYouTube';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 export default function Hero() {
   const handleJoinWaitlist = () => {
@@ -12,14 +13,15 @@ export default function Hero() {
   };
 
   const videoOptions = {
-    height: '315',
-    width: '560',
+    height: '100%',
+    width: '100%',
     playerVars: {
       autoplay: 0,
       controls: 1,
       rel: 0,
       showinfo: 0,
       modestbranding: 1,
+      playsinline: 1,
     },
   };
 
@@ -79,19 +81,33 @@ export default function Hero() {
             variants={fadeInUp}
           >
             <div className="relative w-full max-w-4xl">
-              <div className="aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl bg-gray-100">
-                <YouTube
-                  videoId="hw2nv3jIgZs"
-                  opts={{
-                    ...videoOptions,
-                    width: '100%',
-                    height: '100%',
-                  }}
-                  className="w-full h-full"
-                  iframeClassName="w-full h-full"
-                  title="Biggest DSA in Java Course"
-                />
-              </div>
+              <ErrorBoundary
+                fallback={
+                  <div className="aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl bg-gray-100 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Video Temporarily Unavailable</h3>
+                      <p className="text-gray-600">Please refresh the page to try again.</p>
+                    </div>
+                  </div>
+                }
+              >
+                <div className="aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl bg-gray-100">
+                  <EnhancedYouTube
+                    videoId="hw2nv3jIgZs"
+                    title="Biggest DSA in Java Course"
+                    opts={videoOptions}
+                    className="w-full h-full"
+                    showLoadingState={true}
+                    autoRetry={true}
+                    maxRetries={3}
+                  />
+                </div>
+              </ErrorBoundary>
               
               {/* Video Glow Effect */}
               <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl md:rounded-3xl blur-xl -z-10" />

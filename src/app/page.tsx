@@ -13,11 +13,25 @@ import SectionNavigation from "@/components/navigation/SectionNavigation";
 import PageLoader from "@/components/ui/PageLoader";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { usePerformanceMonitoring } from "@/hooks/usePerformanceMonitoring";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
   const { isVisible: showScrollTop, scrollToTop } = useScrollToTop(400);
+  
+  // Performance monitoring
+  usePerformanceMonitoring({
+    enableLogging: process.env.NODE_ENV === 'development',
+    onMetric: (_metric) => {
+      // In production, you would send this to your analytics service
+      if (process.env.NODE_ENV === 'production') {
+        // Example: analytics.track('performance_metric', metric);
+      }
+    },
+  });
 
   useEffect(() => {
     // Enable smooth scrolling for the entire page
@@ -66,7 +80,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <PerformanceOptimizer enableOptimizations={true}>
       {/* Page Loader */}
       {showLoader && <PageLoader onLoadComplete={handleLoadComplete} />}
       
@@ -86,61 +100,86 @@ export default function Home() {
         <SectionNavigation />
 
         {/* Hero Section - Full viewport height */}
-        <section 
-          id="hero" 
-          className="relative min-h-screen flex items-center justify-center"
+        <ErrorBoundary
+          fallback={
+            <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100">
+              <div className="text-center p-8">
+                <h1 className="text-4xl font-bold text-gray-900 mb-4">Welcome to NextGen-CTO</h1>
+                <p className="text-xl text-gray-600 mb-6">Master Code, Design, AI & Leadership</p>
+                <button 
+                  onClick={() => window.location.reload()} 
+                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Refresh Page
+                </button>
+              </div>
+            </section>
+          }
         >
-          <Hero />
-        </section>
+          <section 
+            id="hero" 
+            className="relative min-h-screen flex items-center justify-center"
+          >
+            <Hero />
+          </section>
+        </ErrorBoundary>
 
         {/* Main Content Sections with proper spacing */}
         <div className="relative z-10">
           {/* Roadmaps Section */}
-          <ScrollReveal>
-            <section 
-              id="roadmaps" 
-              className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50"
-            >
-              <Roadmaps />
-            </section>
-          </ScrollReveal>
+          <ErrorBoundary>
+            <ScrollReveal>
+              <section 
+                id="roadmaps" 
+                className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50"
+              >
+                <Roadmaps />
+              </section>
+            </ScrollReveal>
+          </ErrorBoundary>
 
           {/* Instructor Section */}
-          <ScrollReveal direction="up" delay={0.2}>
-            <section 
-              id="instructor" 
-              className="py-16 md:py-24 lg:py-32 bg-white"
-            >
-              <Instructor />
-            </section>
-          </ScrollReveal>
+          <ErrorBoundary>
+            <ScrollReveal direction="up" delay={0.2}>
+              <section 
+                id="instructor" 
+                className="py-16 md:py-24 lg:py-32 bg-white"
+              >
+                <Instructor />
+              </section>
+            </ScrollReveal>
+          </ErrorBoundary>
 
           {/* Testimonials Section */}
-          <ScrollReveal direction="up" delay={0.3}>
-            <section 
-              id="testimonials" 
-              className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white"
-            >
-              <Testimonials />
-            </section>
-          </ScrollReveal>
+          <ErrorBoundary>
+            <ScrollReveal direction="up" delay={0.3}>
+              <section 
+                id="testimonials" 
+                className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white"
+              >
+                <Testimonials />
+              </section>
+            </ScrollReveal>
+          </ErrorBoundary>
 
           {/* Waitlist Section */}
-          <ScrollReveal direction="up" delay={0.4}>
-            <section 
-              id="waitlist" 
-              className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden"
-            >
-              {/* Background decoration */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
-              <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-              
-              <div className="relative z-10">
-                <Waitlist />
-              </div>
-            </section>
-          </ScrollReveal>
+          <ErrorBoundary>
+            <ScrollReveal direction="up" delay={0.4}>
+              <section 
+                id="waitlist" 
+                className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden"
+              >
+                {/* Background decoration */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+                
+                <div className="relative z-10">
+                  <Waitlist />
+                </div>
+              </section>
+            </ScrollReveal>
+          </ErrorBoundary>
         </div>
 
         {/* Footer Section */}
@@ -182,6 +221,6 @@ export default function Home() {
         </AnimatePresence>
         </motion.main>
       </AnimatePresence>
-    </>
+    </PerformanceOptimizer>
   );
 }
