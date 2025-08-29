@@ -65,19 +65,19 @@ export default function Testimonials() {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16 px-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               What Our Students Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Join thousands of professionals who have transformed their careers with NextGen-CTO
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto px-4">
           {/* Main Testimonial Display */}
-          <div className="relative h-80 md:h-64 overflow-hidden">
+          <div className="relative min-h-[320px] sm:min-h-[280px] md:h-64 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -87,7 +87,7 @@ export default function Testimonials() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
-                <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col justify-between">
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 sm:p-8 h-full flex flex-col justify-between">
                   <div>
                     {/* Rating Stars */}
                     <div className="flex justify-center mb-6">
@@ -100,21 +100,21 @@ export default function Testimonials() {
                     </div>
 
                     {/* Testimonial Text */}
-                    <blockquote className="text-lg text-gray-700 text-center leading-relaxed mb-8">
+                    <blockquote className="text-base sm:text-lg text-gray-700 text-center leading-relaxed mb-6 sm:mb-8">
                       &ldquo;{testimonials[currentIndex].feedback}&rdquo;
                     </blockquote>
                   </div>
 
                   {/* Author Info */}
                   <div className="flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl mr-4">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg sm:text-xl mr-3 sm:mr-4">
                       {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div className="text-left">
-                      <div className="font-semibold text-gray-900">
+                      <div className="font-semibold text-gray-900 text-sm sm:text-base">
                         {testimonials[currentIndex].name}
                       </div>
-                      <div className="text-gray-600">
+                      <div className="text-gray-600 text-sm">
                         {testimonials[currentIndex].role}
                         {testimonials[currentIndex].company && (
                           <span className="text-blue-600"> @ {testimonials[currentIndex].company}</span>

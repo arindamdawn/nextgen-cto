@@ -100,7 +100,7 @@ const RoadmapCard = ({ roadmap, index }: { roadmap: Roadmap; index: number }) =>
       {/* Gradient Header */}
       <div className={cn("h-2 bg-gradient-to-r", roadmap.color)} />
       
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Card Header */}
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-2xl font-bold text-gray-900">{roadmap.title}</h3>
@@ -188,11 +188,11 @@ export default function Roadmaps() {
     <section id="roadmaps" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Learning Roadmaps
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               Structured learning paths designed to take you from beginner to expert in the most in-demand skills for modern CTOs
             </p>
           </div>
@@ -203,7 +203,7 @@ export default function Roadmaps() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4"
         >
           {roadmapsData.map((roadmap, index) => (
             <RoadmapCard key={roadmap.id} roadmap={roadmap} index={index} />

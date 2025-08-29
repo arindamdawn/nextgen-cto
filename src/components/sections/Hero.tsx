@@ -58,16 +58,16 @@ export default function Hero() {
         <div className="max-w-6xl mx-auto">
           {/* Hero Text */}
           <motion.div 
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
             variants={fadeInUp}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-2">
               Master Code, Design, AI & Leadership —{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Become the CTO of Tomorrow
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
               Join the next generation of technical leaders with comprehensive courses 
               designed to build well-rounded CTOs who excel in every aspect of technology leadership.
             </p>
@@ -75,11 +75,11 @@ export default function Hero() {
 
           {/* Video Section */}
           <motion.div 
-            className="mb-12 flex justify-center"
+            className="mb-8 md:mb-12 flex justify-center px-4"
             variants={fadeInUp}
           >
             <div className="relative w-full max-w-4xl">
-              <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
+              <div className="aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl bg-gray-100">
                 <YouTube
                   videoId="hw2nv3jIgZs"
                   opts={{
@@ -94,23 +94,23 @@ export default function Hero() {
               </div>
               
               {/* Video Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl -z-10" />
+              <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl md:rounded-3xl blur-xl -z-10" />
             </div>
           </motion.div>
 
           {/* CTA Button */}
           <motion.div 
-            className="text-center"
+            className="text-center px-4"
             variants={fadeInUp}
           >
             <Button
               onClick={handleJoinWaitlist}
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
               Join the Waitlist
             </Button>
-            <p className="text-gray-500 mt-4 text-sm">
+            <p className="text-gray-500 mt-4 text-sm px-2">
               Be the first to know when courses launch
             </p>
           </motion.div>

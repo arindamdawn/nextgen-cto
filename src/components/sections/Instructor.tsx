@@ -6,18 +6,18 @@ export default function Instructor() {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <ScrollReveal>
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 md:mb-16 px-4">
             Meet Your Instructor
           </h2>
         </ScrollReveal>
         
         <ScrollReveal delay={0.2}>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-              <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 sm:p-8 md:p-12">
+              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
                 {/* Instructor Photo */}
                 <div className="flex-shrink-0">
-                  <div className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
+                  <div className="w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
                     <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                       {/* Placeholder for instructor photo */}
                       <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
@@ -39,10 +39,10 @@ export default function Instructor() {
 
                 {/* Instructor Details */}
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                     Anuj Kumar
                   </h3>
-                  <p className="text-xl text-blue-600 font-semibold mb-4">
+                  <p className="text-lg sm:text-xl text-blue-600 font-semibold mb-4">
                     Senior Software Engineer & Tech Lead
                   </p>
                   <div className="text-gray-600 leading-relaxed space-y-4">
@@ -66,17 +66,17 @@ export default function Instructor() {
                   </div>
                   
                   {/* Credentials/Badges */}
-                  <div className="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                  <div className="flex flex-wrap gap-2 sm:gap-3 mt-6 justify-center md:justify-start">
+                    <span className="px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium">
                       10+ Years Experience
                     </span>
-                    <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+                    <span className="px-2 sm:px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs sm:text-sm font-medium">
                       Stanford Graduate
                     </span>
-                    <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                    <span className="px-2 sm:px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs sm:text-sm font-medium">
                       AWS Certified
                     </span>
-                    <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+                    <span className="px-2 sm:px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs sm:text-sm font-medium">
                       500+ Students Mentored
                     </span>
                   </div>

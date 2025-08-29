@@ -105,18 +105,18 @@ export default function Waitlist() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center"
         >
-          <motion.div variants={itemVariants} className="mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div variants={itemVariants} className="mb-8 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Join Waitlist Now
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Be the first to know when our comprehensive CTO courses launch. 
               Get exclusive early access and special pricing.
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="max-w-md mx-auto">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+          <motion.div variants={itemVariants} className="max-w-md mx-auto px-4">
+            <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
               {submissionState === 'success' ? (
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
