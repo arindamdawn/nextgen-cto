@@ -1,4 +1,8 @@
+"use client";
+
 import React from 'react';
+import ScrollReveal from '../animations/ScrollReveal';
+import StaggerReveal from '../animations/StaggerReveal';
 
 export default function Footer() {
   const socialLinks = [
@@ -43,38 +47,59 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-gray-50/50">
+    <footer className="border-t bg-gray-50/50 content-visibility-auto">
       <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-          {/* Company Name */}
-          <div className="text-center md:text-left">
-            <h3 className="text-lg font-semibold text-gray-900">NextGen-CTO</h3>
-            <p className="text-sm text-gray-600">Master Code, Design, AI & Leadership</p>
-          </div>
+        <ScrollReveal 
+          direction="up" 
+          duration={0.6}
+          threshold={0.3}
+        >
+          <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
+            {/* Company Name */}
+            <ScrollReveal 
+              delay={0.1} 
+              direction="left" 
+              duration={0.5}
+              className="text-center md:text-left"
+            >
+              <h3 className="text-lg font-semibold text-gray-900">NextGen-CTO</h3>
+              <p className="text-sm text-gray-600">Master Code, Design, AI & Leadership</p>
+            </ScrollReveal>
 
-          {/* Social Links */}
-          <div className="flex items-center space-x-6">
-            {socialLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-600 transition-colors duration-200"
-                aria-label={`Follow us on ${link.name}`}
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
+            {/* Social Links */}
+            <StaggerReveal 
+              delay={0.2} 
+              staggerDelay={0.1}
+              direction="up"
+              className="flex items-center space-x-6"
+            >
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-gray-600 transition-colors duration-200 motion-reduce-friendly touch-manipulation"
+                  aria-label={`Follow us on ${link.name}`}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </StaggerReveal>
 
-          {/* Copyright Notice */}
-          <div className="text-center md:text-right">
-            <p className="text-sm text-gray-500">
-              © {currentYear} NextGen-CTO. All rights reserved.
-            </p>
+            {/* Copyright Notice */}
+            <ScrollReveal 
+              delay={0.4} 
+              direction="right" 
+              duration={0.5}
+              className="text-center md:text-right"
+            >
+              <p className="text-sm text-gray-500">
+                © {currentYear} NextGen-CTO. All rights reserved.
+              </p>
+            </ScrollReveal>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </footer>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import PerformanceMonitor from "@/components/animations/PerformanceMonitor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,9 +33,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth-enhanced">
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
+        <PerformanceMonitor showDebugInfo={true} threshold={55} />
       </body>
     </html>
   );

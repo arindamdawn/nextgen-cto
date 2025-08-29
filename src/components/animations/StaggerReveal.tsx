@@ -1,34 +1,31 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef, ReactNode, useEffect, useState } from "react";
+import { useRef, ReactNode, Children, isValidElement, useEffect, useState } from "react";
 
-interface ScrollRevealProps {
+interface StaggerRevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  staggerDelay?: number;
   direction?: "up" | "down" | "left" | "right";
   duration?: number;
   threshold?: number;
-  stagger?: boolean;
-  staggerDelay?: number;
 }
 
-export default function ScrollReveal({
+export default function StaggerReveal({
   children,
   className = "",
   delay = 0,
+  staggerDelay = 0.1,
   direction = "up",
   duration = 0.6,
   threshold = 0.1,
-  stagger = false,
-  staggerDelay = 0.1,
-}: ScrollRevealProps) {
+}: StaggerRevealProps) {
   const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion();
   const [isClient, setIsClient] = useState(false);
   
-  // Ensure we're on the client side to avoid hydration issues
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -39,14 +36,29 @@ export default function ScrollReveal({
   });
 
   const directionOffset = {
-    up: { y: shouldReduceMotion ? 0 : 50, x: 0 },
-    down: { y: shouldReduceMotion ? 0 : -50, x: 0 },
-    left: { y: 0, x: shouldReduceMotion ? 0 : 50 },
-    right: { y: 0, x: shouldReduceMotion ? 0 : -50 },
+    up: { y: shouldReduceMotion ? 0 : 30, x: 0 },
+    down: { y: shouldReduceMotion ? 0 : -30, x: 0 },
+    left: { y: 0, x: shouldReduceMotion ? 0 : 30 },
+    right: { y: 0, x: shouldReduceMotion ? 0 : -30 },
   };
 
-  // Optimized animation variants for 60fps performance
-  const variants = {
+  const containerVariants = {
+    hidden: {
+      opacity: shouldReduceMotion ? 1 : 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.3,
+        delay: shouldReduceMotion ? 0 : delay,
+        staggerChildren: shouldReduceMotion ? 0 : staggerDelay,
+        delayChildren: shouldReduceMotion ? 0 : delay,
+        type: "tween" as const,
+      },
+    },
+  };
+
+  const itemVariants = {
     hidden: {
       opacity: shouldReduceMotion ? 1 : 0,
       ...directionOffset[direction],
@@ -57,32 +69,12 @@ export default function ScrollReveal({
       y: 0,
       transition: {
         duration: shouldReduceMotion ? 0 : duration,
-        delay: shouldReduceMotion ? 0 : delay,
         ease: [0.25, 0.1, 0.25, 1] as const,
-        // Optimize for 60fps by using transform3d
         type: "tween" as const,
       },
     },
   };
 
-  // Staggered children variants
-  const staggerVariants = {
-    hidden: {
-      opacity: shouldReduceMotion ? 1 : 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: shouldReduceMotion ? 0 : duration,
-        delay: shouldReduceMotion ? 0 : delay,
-        staggerChildren: shouldReduceMotion ? 0 : staggerDelay,
-        delayChildren: shouldReduceMotion ? 0 : delay,
-        type: "tween" as const,
-      },
-    },
-  };
-
-  // Don't render animations on server side
   if (!isClient) {
     return <div className={className}>{children}</div>;
   }
@@ -92,18 +84,31 @@ export default function ScrollReveal({
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={stagger ? staggerVariants : variants}
+      variants={containerVariants}
       className={className}
-      // Performance optimizations
       style={{
         willChange: isInView ? "auto" : "transform, opacity",
       }}
-      // Use GPU acceleration for better performance
-      transformTemplate={({ x, y, rotate }) => 
-        `translate3d(${x}, ${y}, 0) rotate(${rotate})`
-      }
     >
-      {children}
+      {Children.map(children, (child, index) => {
+        if (isValidElement(child)) {
+          return (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              style={{
+                willChange: isInView ? "auto" : "transform, opacity",
+              }}
+              transformTemplate={({ x, y, rotate }) => 
+                `translate3d(${x}, ${y}, 0) rotate(${rotate})`
+              }
+            >
+              {child}
+            </motion.div>
+          );
+        }
+        return child;
+      })}
     </motion.div>
   );
 }

@@ -1,22 +1,39 @@
+"use client";
+
 import React from 'react';
 import ScrollReveal from '../animations/ScrollReveal';
+import StaggerReveal from '../animations/StaggerReveal';
 
 export default function Instructor() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 content-visibility-auto">
       <div className="container mx-auto px-4">
-        <ScrollReveal>
+        <ScrollReveal 
+          direction="up" 
+          duration={0.8}
+          threshold={0.2}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 md:mb-16 px-4">
             Meet Your Instructor
           </h2>
         </ScrollReveal>
         
-        <ScrollReveal delay={0.2}>
+        <ScrollReveal 
+          delay={0.3} 
+          direction="up" 
+          duration={0.8}
+          threshold={0.1}
+        >
           <div className="max-w-4xl mx-auto px-4">
-            <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 sm:p-8 md:p-12">
+            <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 sm:p-8 md:p-12 animate-optimized">
               <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
                 {/* Instructor Photo */}
-                <div className="flex-shrink-0">
+                <ScrollReveal 
+                  delay={0.5} 
+                  direction="left" 
+                  duration={0.6}
+                  className="flex-shrink-0"
+                >
                   <div className="w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
                     <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                       {/* Placeholder for instructor photo */}
@@ -35,17 +52,29 @@ export default function Instructor() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </ScrollReveal>
 
                 {/* Instructor Details */}
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                    Anuj Kumar
-                  </h3>
-                  <p className="text-lg sm:text-xl text-blue-600 font-semibold mb-4">
-                    Senior Software Engineer & Tech Lead
-                  </p>
-                  <div className="text-gray-600 leading-relaxed space-y-4">
+                  <ScrollReveal 
+                    delay={0.6} 
+                    direction="right" 
+                    duration={0.6}
+                  >
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                      Anuj Kumar
+                    </h3>
+                    <p className="text-lg sm:text-xl text-blue-600 font-semibold mb-4">
+                      Senior Software Engineer & Tech Lead
+                    </p>
+                  </ScrollReveal>
+                  
+                  <StaggerReveal 
+                    delay={0.8} 
+                    staggerDelay={0.2}
+                    direction="up"
+                    className="text-gray-600 leading-relaxed space-y-4"
+                  >
                     <p>
                       With over 10 years of experience in software development and technical leadership, 
                       John has worked at top-tier companies including Google, Microsoft, and several 
@@ -63,23 +92,28 @@ export default function Instructor() {
                       is a certified AWS Solutions Architect. When not coding or teaching, John 
                       enjoys contributing to open-source projects and speaking at tech conferences.
                     </p>
-                  </div>
+                  </StaggerReveal>
                   
                   {/* Credentials/Badges */}
-                  <div className="flex flex-wrap gap-2 sm:gap-3 mt-6 justify-center md:justify-start">
-                    <span className="px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium">
+                  <StaggerReveal 
+                    delay={1.2} 
+                    staggerDelay={0.1}
+                    direction="up"
+                    className="flex flex-wrap gap-2 sm:gap-3 mt-6 justify-center md:justify-start"
+                  >
+                    <span className="px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium motion-reduce-friendly">
                       10+ Years Experience
                     </span>
-                    <span className="px-2 sm:px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs sm:text-sm font-medium">
+                    <span className="px-2 sm:px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs sm:text-sm font-medium motion-reduce-friendly">
                       Stanford Graduate
                     </span>
-                    <span className="px-2 sm:px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs sm:text-sm font-medium">
+                    <span className="px-2 sm:px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs sm:text-sm font-medium motion-reduce-friendly">
                       AWS Certified
                     </span>
-                    <span className="px-2 sm:px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs sm:text-sm font-medium">
+                    <span className="px-2 sm:px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs sm:text-sm font-medium motion-reduce-friendly">
                       500+ Students Mentored
                     </span>
-                  </div>
+                  </StaggerReveal>
                 </div>
               </div>
             </div>

@@ -125,9 +125,26 @@
     -webkit-tap-highlight-color: transparent;
   }
   
-  /* Smooth scrolling for all devices */
+  /* Enhanced smooth scrolling for all devices */
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 2rem; /* Account for any fixed headers */
+  }
+  
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
   
   /* Improve touch targets on mobile */
@@ -148,10 +165,41 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Performance optimizations for animations */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  .will-change-auto {
+    will-change: auto;
+  }
+  
+  /* GPU acceleration for smooth animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Optimize images for performance */
+  img {
+    content-visibility: auto;
+  }
+  
+  /* Optimize sections for performance */
+  section {
+    contain: layout style paint;
   }
 }
 
-/* Mobile-specific utilities */
+/* Mobile-specific and performance utilities */
 @layer utilities {
   .touch-manipulation {
     touch-action: manipulation;
@@ -160,5 +208,40 @@
   .safe-area-inset {
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
+  }
+  
+  /* Animation performance utilities */
+  .animate-optimized {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+  
+  .animate-optimized-complete {
+    will-change: auto;
+  }
+  
+  /* Smooth scroll utilities */
+  .scroll-smooth-enhanced {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
+  
+  /* Content visibility for performance */
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+  
+  /* Reduced motion utilities */
+  .motion-reduce-friendly {
+    transition-duration: 0.15s;
+    animation-duration: 0.15s;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .motion-reduce-friendly {
+      transition-duration: 0.01ms;
+      animation-duration: 0.01ms;
+    }
   }
 }
