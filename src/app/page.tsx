@@ -8,7 +8,6 @@ import Instructor from "@/components/sections/Instructor";
 import Testimonials from "@/components/sections/Testimonials";
 import Waitlist from "@/components/sections/Waitlist";
 import Footer from "@/components/sections/Footer";
-import ScrollReveal from "@/components/animations/ScrollReveal";
 import SectionNavigation from "@/components/navigation/SectionNavigation";
 import PageLoader from "@/components/ui/PageLoader";
 import ScrollProgress from "@/components/ui/ScrollProgress";
@@ -25,10 +24,11 @@ export default function Home() {
   // Performance monitoring
   usePerformanceMonitoring({
     enableLogging: process.env.NODE_ENV === 'development',
-    onMetric: (_metric) => {
+    onMetric: (metric) => {
       // In production, you would send this to your analytics service
       if (process.env.NODE_ENV === 'production') {
         // Example: analytics.track('performance_metric', metric);
+        console.log('Performance metric:', metric);
       }
     },
   });
@@ -128,66 +128,56 @@ export default function Home() {
         <div className="relative z-10">
           {/* Roadmaps Section */}
           <ErrorBoundary>
-            <ScrollReveal>
-              <section 
-                id="roadmaps" 
-                className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50"
-              >
-                <Roadmaps />
-              </section>
-            </ScrollReveal>
+            <section 
+              id="roadmaps" 
+              className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50"
+            >
+              <Roadmaps />
+            </section>
           </ErrorBoundary>
 
           {/* Instructor Section */}
           <ErrorBoundary>
-            <ScrollReveal direction="up" delay={0.2}>
-              <section 
-                id="instructor" 
-                className="py-16 md:py-24 lg:py-32 bg-white"
-              >
-                <Instructor />
-              </section>
-            </ScrollReveal>
+            <section 
+              id="instructor" 
+              className="py-16 md:py-24 lg:py-32 bg-white"
+            >
+              <Instructor />
+            </section>
           </ErrorBoundary>
 
           {/* Testimonials Section */}
           <ErrorBoundary>
-            <ScrollReveal direction="up" delay={0.3}>
-              <section 
-                id="testimonials" 
-                className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white"
-              >
-                <Testimonials />
-              </section>
-            </ScrollReveal>
+            <section 
+              id="testimonials" 
+              className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white"
+            >
+              <Testimonials />
+            </section>
           </ErrorBoundary>
 
           {/* Waitlist Section */}
           <ErrorBoundary>
-            <ScrollReveal direction="up" delay={0.4}>
-              <section 
-                id="waitlist" 
-                className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden"
-              >
-                {/* Background decoration */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
-                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-                
-                <div className="relative z-10">
-                  <Waitlist />
-                </div>
-              </section>
-            </ScrollReveal>
+            <section 
+              id="waitlist" 
+              className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden"
+            >
+              {/* Background decoration */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
+              <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+              
+              <div className="relative z-10">
+                <Waitlist />
+              </div>
+            </section>
           </ErrorBoundary>
         </div>
 
         {/* Footer Section */}
-        <ScrollReveal direction="up" delay={0.5}>
-          <footer className="bg-gray-900 text-white">
-            <Footer />
-          </footer>
-        </ScrollReveal>
+        <footer className="bg-gray-900 text-white">
+          <Footer />
+        </footer>
 
         {/* Scroll to top button */}
         <AnimatePresence>

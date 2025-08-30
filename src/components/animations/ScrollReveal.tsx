@@ -35,7 +35,8 @@ export default function ScrollReveal({
 
   const isInView = useInView(ref, { 
     once: true, 
-    amount: threshold 
+    amount: threshold,
+    margin: "0px 0px -100px 0px"
   });
 
   const directionOffset = {

@@ -10,7 +10,8 @@ const roadmapsData: Roadmap[] = [
   {
     id: "ai-ml",
     title: "AI/ML",
-    description: "Master artificial intelligence and machine learning from fundamentals to advanced applications",
+    description:
+      "Master artificial intelligence and machine learning from fundamentals to advanced applications",
     color: "from-blue-500 to-purple-600",
     steps: [
       { id: "python", title: "Python" },
@@ -28,7 +29,8 @@ const roadmapsData: Roadmap[] = [
   {
     id: "design",
     title: "Design",
-    description: "Learn comprehensive design skills from prototyping to advanced visual effects",
+    description:
+      "Learn comprehensive design skills from prototyping to advanced visual effects",
     color: "from-pink-500 to-orange-500",
     steps: [
       { id: "figma", title: "Figma" },
@@ -44,7 +46,8 @@ const roadmapsData: Roadmap[] = [
     title: "Coding",
     description: "Comprehensive coding roadmap from zero to hero",
     color: "from-green-500 to-teal-600",
-    externalLink: "https://github.com/team-codebug/leetcode/blob/main/ZERO2HERO%20(1).pdf",
+    externalLink:
+      "https://github.com/team-codebug/leetcode/blob/main/ZERO2HERO%20(1).pdf",
     steps: [
       { id: "fundamentals", title: "Programming Fundamentals" },
       { id: "data-structures", title: "Data Structures" },
@@ -55,7 +58,13 @@ const roadmapsData: Roadmap[] = [
   },
 ];
 
-const RoadmapCard = ({ roadmap, index }: { roadmap: Roadmap; index: number }) => {
+const RoadmapCard = ({
+  roadmap,
+  index,
+}: {
+  roadmap: Roadmap;
+  index: number;
+}) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -99,7 +108,7 @@ const RoadmapCard = ({ roadmap, index }: { roadmap: Roadmap; index: number }) =>
     >
       {/* Gradient Header */}
       <div className={cn("h-2 bg-gradient-to-r", roadmap.color)} />
-      
+
       <div className="p-4 sm:p-6">
         {/* Card Header */}
         <div className="flex items-center justify-between mb-4">
@@ -116,7 +125,7 @@ const RoadmapCard = ({ roadmap, index }: { roadmap: Roadmap; index: number }) =>
             </a>
           )}
         </div>
-        
+
         <p className="text-gray-600 mb-6">{roadmap.description}</p>
 
         {/* Timeline Steps */}
@@ -134,13 +143,15 @@ const RoadmapCard = ({ roadmap, index }: { roadmap: Roadmap; index: number }) =>
               className="flex items-center gap-3 group/step"
             >
               {/* Step Number */}
-              <div className={cn(
-                "flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r flex items-center justify-center text-white text-sm font-semibold",
-                roadmap.color
-              )}>
+              <div
+                className={cn(
+                  "flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r flex items-center justify-center text-white text-sm font-semibold",
+                  roadmap.color
+                )}
+              >
                 {stepIndex + 1}
               </div>
-              
+
               {/* Step Content */}
               <div className="flex-1 flex items-center justify-between">
                 <span className="text-gray-800 font-medium group-hover/step:text-gray-900 transition-colors">
@@ -164,7 +175,11 @@ const RoadmapCard = ({ roadmap, index }: { roadmap: Roadmap; index: number }) =>
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5, delay: 0.5 + index * 0.2, ease: "easeOut" }}
+              transition={{
+                duration: 1.5,
+                delay: 0.5 + index * 0.2,
+                ease: "easeOut",
+              }}
             />
           </div>
         </div>
@@ -180,57 +195,58 @@ export default function Roadmaps() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        delayChildren: 0.1,
       },
     },
   };
 
   return (
-    <section id="roadmaps" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <ScrollReveal>
-          <div className="text-center mb-12 md:mb-16 px-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Learning Roadmaps
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Structured learning paths designed to take you from beginner to expert in the most in-demand skills for modern CTOs
-            </p>
-          </div>
-        </ScrollReveal>
+    <div className="container mx-auto px-4">
+      <ScrollReveal>
+        <div className="text-center mb-12 md:mb-16 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Learning Roadmaps
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            Structured learning paths designed to take you from beginner to
+            expert in the most in-demand skills for modern CTOs
+          </p>
+        </div>
+      </ScrollReveal>
 
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4"
-        >
-          {roadmapsData.map((roadmap, index) => (
-            <RoadmapCard key={roadmap.id} roadmap={roadmap} index={index} />
-          ))}
-        </motion.div>
+      <motion.div
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4"
+      >
+        {roadmapsData.map((roadmap, index) => (
+          <RoadmapCard key={roadmap.id} roadmap={roadmap} index={index} />
+        ))}
+      </motion.div>
 
-        {/* Call to Action */}
-        <ScrollReveal delay={0.6}>
-          <div className="text-center mt-16">
-            <p className="text-lg text-gray-600 mb-6">
-              Ready to start your journey? Join our waitlist to get early access to these comprehensive learning paths.
-            </p>
-            <button
-              onClick={() => {
-                const waitlistSection = document.getElementById('waitlist');
-                if (waitlistSection) {
-                  waitlistSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
-            >
-              Join the Waitlist
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
+      {/* Call to Action */}
+      <ScrollReveal delay={0.4}>
+        <div className="text-center mt-16">
+          <p className="text-lg text-gray-600 mb-6">
+            Ready to start your journey? Join our waitlist to get early access
+            to these comprehensive learning paths.
+          </p>
+          <button
+            onClick={() => {
+              const waitlistSection = document.getElementById("waitlist");
+              if (waitlistSection) {
+                waitlistSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+          >
+            Join the Waitlist
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </ScrollReveal>
+    </div>
   );
 }
