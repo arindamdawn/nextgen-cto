@@ -77,53 +77,45 @@ export default function Testimonials() {
       <div className="relative max-w-4xl mx-auto px-4">
         {/* Main Testimonial Display */}
         <div className="relative min-h-[320px] sm:min-h-[280px] md:h-64 overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 sm:p-8 h-full flex flex-col justify-between">
-                <div>
-                  {/* Rating Stars */}
-                  <div className="flex justify-center mb-6">
-                    {[...Array(testimonials[currentIndex].rating || 5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 text-yellow-400 fill-current"
-                      />
-                    ))}
-                  </div>
-
-                  {/* Testimonial Text */}
-                  <blockquote className="text-base sm:text-lg text-gray-700 text-center leading-relaxed mb-6 sm:mb-8">
-                    &ldquo;{testimonials[currentIndex].feedback}&rdquo;
-                  </blockquote>
+          {/* Disable AnimatePresence temporarily */}
+          <div className="absolute inset-0">
+            <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 sm:p-8 h-full flex flex-col justify-between">
+              <div>
+                {/* Rating Stars */}
+                <div className="flex justify-center mb-6">
+                  {[...Array(testimonials[currentIndex].rating || 5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-current"
+                    />
+                  ))}
                 </div>
 
-                {/* Author Info */}
-                <div className="flex items-center justify-center">
-                  <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg sm:text-xl mr-3 sm:mr-4">
-                    {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
+                {/* Testimonial Text */}
+                <blockquote className="text-base sm:text-lg text-gray-700 text-center leading-relaxed mb-6 sm:mb-8">
+                  &ldquo;{testimonials[currentIndex].feedback}&rdquo;
+                </blockquote>
+              </div>
+
+              {/* Author Info */}
+              <div className="flex items-center justify-center">
+                <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg sm:text-xl mr-3 sm:mr-4">
+                  {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div className="text-left">
+                  <div className="font-semibold text-gray-900 text-sm sm:text-base">
+                    {testimonials[currentIndex].name}
                   </div>
-                  <div className="text-left">
-                    <div className="font-semibold text-gray-900 text-sm sm:text-base">
-                      {testimonials[currentIndex].name}
-                    </div>
-                    <div className="text-gray-600 text-sm">
-                      {testimonials[currentIndex].role}
-                      {testimonials[currentIndex].company && (
-                        <span className="text-blue-600"> @ {testimonials[currentIndex].company}</span>
-                      )}
-                    </div>
+                  <div className="text-gray-600 text-sm">
+                    {testimonials[currentIndex].role}
+                    {testimonials[currentIndex].company && (
+                      <span className="text-blue-600"> @ {testimonials[currentIndex].company}</span>
+                    )}
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          </div>
         </div>
 
         {/* Navigation Controls */}
@@ -175,14 +167,11 @@ export default function Testimonials() {
 
       {/* Additional testimonials preview on larger screens */}
       <div className="hidden lg:block mt-16">
-        <ScrollReveal delay={0.2}>
+        <div>
           <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
             {testimonials.slice(0, 3).map((testimonial, index) => (
-              <motion.div
+              <div
                 key={testimonial.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
               >
                 <div className="flex items-center mb-4">
@@ -197,10 +186,10 @@ export default function Testimonials() {
                 <p className="text-sm text-gray-700 line-clamp-3">
                   &ldquo;{testimonial.feedback.substring(0, 120)}...&rdquo;
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </div>
   );

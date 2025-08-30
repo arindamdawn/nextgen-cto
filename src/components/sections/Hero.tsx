@@ -42,27 +42,16 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
-      <motion.div
-        className="absolute inset-0 opacity-10"
-        animate={backgroundAnimation}
-      />
+      <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-blue-600 to-purple-600" />
       
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
       
       {/* Content Container */}
-      <motion.div
-        className="relative z-10 container mx-auto px-4 py-20"
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="max-w-6xl mx-auto">
           {/* Hero Text */}
-          <motion.div 
-            className="text-center mb-8 md:mb-12"
-            variants={fadeInUp}
-          >
+          <div className="text-center mb-8 md:mb-12">
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-2">
               Master Code, Design, AI & Leadership —{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -73,13 +62,10 @@ export default function Hero() {
               Join the next generation of technical leaders with comprehensive courses 
               designed to build well-rounded CTOs who excel in every aspect of technology leadership.
             </p>
-          </motion.div>
+          </div>
 
           {/* Video Section */}
-          <motion.div 
-            className="mb-8 md:mb-12 flex justify-center px-4"
-            variants={fadeInUp}
-          >
+          <div className="mb-8 md:mb-12 flex justify-center px-4">
             <div className="relative w-full max-w-4xl">
               <ErrorBoundary
                 fallback={
@@ -112,13 +98,10 @@ export default function Hero() {
               {/* Video Glow Effect */}
               <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl md:rounded-3xl blur-xl -z-10" />
             </div>
-          </motion.div>
+          </div>
 
           {/* CTA Button */}
-          <motion.div 
-            className="text-center px-4"
-            variants={fadeInUp}
-          >
+          <div className="text-center px-4">
             <Button
               onClick={handleJoinWaitlist}
               size="lg"
@@ -129,29 +112,16 @@ export default function Hero() {
             <p className="text-gray-500 mt-4 text-sm px-2">
               Be the first to know when courses launch
             </p>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
-      >
-        <motion.div
-          className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <motion.div
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </motion.div>
-      </motion.div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2" />
+        </div>
+      </div>
     </section>
   );
 }

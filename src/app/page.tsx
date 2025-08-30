@@ -60,20 +60,20 @@ export default function Home() {
     setShowLoader(false);
   };
 
-  // Page transition variants
+  // Page transition variants - temporarily disabled
   const pageVariants = {
-    initial: { opacity: 0 },
+    initial: { opacity: 1 },
     animate: { 
       opacity: 1,
       transition: { 
-        duration: 0.5,
+        duration: 0,
         ease: [0.25, 0.1, 0.25, 1] as const
       }
     },
     exit: { 
-      opacity: 0,
+      opacity: 1,
       transition: { 
-        duration: 0.3,
+        duration: 0,
         ease: [0.25, 0.1, 0.25, 1] as const
       }
     }
@@ -84,13 +84,8 @@ export default function Home() {
       {/* Page Loader */}
       {showLoader && <PageLoader onLoadComplete={handleLoadComplete} />}
       
-      <AnimatePresence mode="wait">
-        <motion.main 
+      <main 
         className="min-h-screen overflow-x-hidden"
-        variants={pageVariants}
-        initial="initial"
-        animate={isLoaded ? "animate" : "initial"}
-        exit="exit"
         key="main-page"
       >
         {/* Scroll Progress Indicator */}
@@ -175,42 +170,33 @@ export default function Home() {
         </div>
 
         {/* Footer Section */}
-        <footer className="bg-gray-900 text-white">
+        <footer>
           <Footer />
         </footer>
 
         {/* Scroll to top button */}
-        <AnimatePresence>
-          {showScrollTop && (
-            <motion.button
-              className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-              onClick={scrollToTop}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.3 }}
-              aria-label="Scroll to top"
+        {showScrollTop && (
+          <button
+            className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+          >
+            <svg 
+              className="w-6 h-6" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
             >
-              <svg 
-                className="w-6 h-6" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M5 10l7-7m0 0l7 7m-7-7v18" 
-                />
-              </svg>
-            </motion.button>
-          )}
-        </AnimatePresence>
-        </motion.main>
-      </AnimatePresence>
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M5 10l7-7m0 0l7 7m-7-7v18" 
+              />
+            </svg>
+          </button>
+        )}
+        </main>
     </PerformanceOptimizer>
   );
 }

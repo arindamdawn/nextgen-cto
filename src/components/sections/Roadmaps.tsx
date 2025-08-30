@@ -65,47 +65,9 @@ const RoadmapCard = ({
   roadmap: Roadmap;
   index: number;
 }) => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: index * 0.2,
-        ease: [0.25, 0.1, 0.25, 1] as const,
-      },
-    },
-  };
-
-  const stepVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1] as const,
-      },
-    },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3 + index * 0.2,
-      },
-    },
-  };
-
+  // Temporarily disable all motion animations
   return (
-    <motion.div
-      variants={cardVariants}
-      className="relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-shadow duration-300"
-    >
+    <div className="relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-shadow duration-300">
       {/* Gradient Header */}
       <div className={cn("h-2 bg-gradient-to-r", roadmap.color)} />
 
@@ -129,17 +91,10 @@ const RoadmapCard = ({
         <p className="text-gray-600 mb-6">{roadmap.description}</p>
 
         {/* Timeline Steps */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="space-y-3"
-        >
+        <div className="space-y-3">
           {roadmap.steps.map((step, stepIndex) => (
-            <motion.div
+            <div
               key={step.id}
-              variants={stepVariants}
               className="flex items-center gap-3 group/step"
             >
               {/* Step Number */}
@@ -159,9 +114,9 @@ const RoadmapCard = ({
                 </span>
                 <ArrowRight className="w-4 h-4 text-gray-400 opacity-0 group-hover/step:opacity-100 transition-opacity" />
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Progress Bar */}
         <div className="mt-6 pt-4 border-t border-gray-100">
@@ -170,36 +125,16 @@ const RoadmapCard = ({
             <span>{roadmap.steps.length} Steps</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <motion.div
-              className={cn("h-2 rounded-full bg-gradient-to-r", roadmap.color)}
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1.5,
-                delay: 0.5 + index * 0.2,
-                ease: "easeOut",
-              }}
-            />
+            <div className={cn("h-2 rounded-full bg-gradient-to-r w-full", roadmap.color)} />
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
 export default function Roadmaps() {
-  const sectionVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
+  // Temporarily disable all motion animations
   return (
     <div className="container mx-auto px-4">
       <ScrollReveal>
@@ -214,17 +149,11 @@ export default function Roadmaps() {
         </div>
       </ScrollReveal>
 
-      <motion.div
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4">
         {roadmapsData.map((roadmap, index) => (
           <RoadmapCard key={roadmap.id} roadmap={roadmap} index={index} />
         ))}
-      </motion.div>
+      </div>
 
       {/* Call to Action */}
       <ScrollReveal delay={0.4}>

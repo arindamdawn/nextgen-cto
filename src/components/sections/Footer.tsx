@@ -46,18 +46,27 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="border-t bg-gray-50/50">
-      <div className="container mx-auto px-4 py-8">
+    <div className="bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-white relative overflow-hidden">
+      {/* Background decoration elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
+      <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl" />
+      
+      <div className="relative z-10 container mx-auto px-4 py-12">
         <ScrollReveal 
           direction="up" 
           duration={0.6}
           threshold={0.1}
         >
-          <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
+          <div className="flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0">
             {/* Company Name */}
             <div className="text-center md:text-left">
-              <h3 className="text-lg font-semibold text-gray-900">NextGen-CTO</h3>
-              <p className="text-sm text-gray-600">Master Code, Design, AI & Leadership</p>
+              <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                NextGen-CTO
+              </h3>
+              <p className="text-gray-300 text-sm">
+                Master Code, Design, AI & Leadership
+              </p>
             </div>
 
             {/* Social Links */}
@@ -68,7 +77,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                  className="text-gray-400 hover:text-blue-400 transition-all duration-300 transform hover:scale-110"
                   aria-label={`Follow us on ${link.name}`}
                 >
                   {link.icon}
@@ -78,7 +87,7 @@ export default function Footer() {
 
             {/* Copyright Notice */}
             <div className="text-center md:text-right">
-              <p className="text-sm text-gray-500">
+              <p className="text-gray-400 text-sm">
                 © {currentYear} NextGen-CTO. All rights reserved.
               </p>
             </div>

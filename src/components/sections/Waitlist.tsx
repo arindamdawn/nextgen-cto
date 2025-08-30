@@ -74,37 +74,11 @@ export default function Waitlist() {
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4 }
-    }
-  };
-
+  // Temporarily disable all motion animations
   return (
     <div className="container mx-auto px-4 max-w-4xl">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="text-center"
-      >
-        <motion.div variants={itemVariants} className="mb-8 px-4">
+      <div className="text-center">
+        <div className="mb-8 px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Join Waitlist Now
           </h2>
@@ -112,16 +86,12 @@ export default function Waitlist() {
             Be the first to know when our comprehensive CTO courses launch. 
             Get exclusive early access and special pricing.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div variants={itemVariants} className="max-w-md mx-auto px-4">
+        <div className="max-w-md mx-auto px-4">
           <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
             {submissionState === 'success' ? (
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="text-center py-8"
-              >
+              <div className="text-center py-8">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
                   You&apos;re In!
@@ -139,7 +109,7 @@ export default function Waitlist() {
                 >
                   Join Another Email
                 </Button>
-              </motion.div>
+              </div>
             ) : (
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -189,14 +159,10 @@ export default function Waitlist() {
                   />
 
                   {submissionState === 'error' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center gap-2 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg"
-                    >
+                    <div className="flex items-center gap-2 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
                       <AlertCircle className="w-5 h-5 flex-shrink-0" />
                       <p className="text-sm">{submissionMessage}</p>
-                    </motion.div>
+                    </div>
                   )}
 
                   <Button
@@ -217,14 +183,14 @@ export default function Waitlist() {
               </Form>
             )}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div variants={itemVariants} className="mt-8">
+        <div className="mt-8">
           <p className="text-sm text-gray-500 dark:text-gray-400">
             No spam, ever. Unsubscribe at any time.
           </p>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
