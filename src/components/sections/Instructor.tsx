@@ -11,7 +11,7 @@ export default function Instructor() {
         duration={0.8}
         threshold={0.1}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 md:mb-16 px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-12 md:mb-16 px-4">
           Meet Your Instructor
         </h2>
       </ScrollReveal>
@@ -23,7 +23,7 @@ export default function Instructor() {
         threshold={0.1}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-6 sm:p-8 md:p-12">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-lg border border-gray-700/50 p-6 sm:p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
               {/* Instructor Photo */}
               <div className="flex-shrink-0">
@@ -49,14 +49,14 @@ export default function Instructor() {
 
               {/* Instructor Details */}
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                   Anuj Kumar
                 </h3>
-                <p className="text-lg sm:text-xl text-blue-600 font-semibold mb-4">
+                <p className="text-lg sm:text-xl text-blue-400 font-semibold mb-4">
                   Senior Software Engineer & Tech Lead
                 </p>
                 
-                <div className="text-gray-600 leading-relaxed space-y-4">
+                <div className="text-gray-300 leading-relaxed space-y-4">
                   <p>
                     With over 10 years of experience in software development and technical leadership, 
                     Anuj has worked at top-tier companies including Google, Microsoft, and several 

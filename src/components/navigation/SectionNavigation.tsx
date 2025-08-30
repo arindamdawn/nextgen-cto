@@ -83,7 +83,7 @@ export default function SectionNavigation() {
         <>
           {/* Desktop Navigation */}
           <motion.nav
-            className="hidden md:block fixed top-8 left-1/2 transform -translate-x-1/2 z-40 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50"
+            className="hidden md:block fixed top-8 left-1/2 transform -translate-x-1/2 z-40 bg-gray-800/90 backdrop-blur-md rounded-full shadow-lg border border-gray-600/50"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -97,7 +97,7 @@ export default function SectionNavigation() {
                   className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                     activeSection === item.id
                       ? 'text-white'
-                      : 'text-gray-600 hover:text-gray-900'
+                      : 'text-gray-300 hover:text-white'
                   }`}
                 >
                   {activeSection === item.id && (
@@ -116,7 +116,7 @@ export default function SectionNavigation() {
           {/* Mobile Navigation Button */}
           <motion.button
             onClick={toggleMobileMenu}
-            className="md:hidden fixed top-6 right-6 z-50 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50 p-3 hover:bg-white/95 transition-all duration-300"
+            className="md:hidden fixed top-6 right-6 z-50 bg-gray-800/90 backdrop-blur-md rounded-full shadow-lg border border-gray-600/50 p-3 hover:bg-gray-700/90 transition-all duration-300"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
@@ -124,9 +124,9 @@ export default function SectionNavigation() {
             aria-label="Toggle navigation menu"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-700" />
+              <X className="w-6 h-6 text-gray-200" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu className="w-6 h-6 text-gray-200" />
             )}
           </motion.button>
 
@@ -142,7 +142,7 @@ export default function SectionNavigation() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <motion.nav
-                  className="absolute top-20 right-6 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200/50 overflow-hidden"
+                  className="absolute top-20 right-6 bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-600/50 overflow-hidden"
                   initial={{ opacity: 0, scale: 0.8, y: -20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.8, y: -20 }}
@@ -154,10 +154,10 @@ export default function SectionNavigation() {
                       <motion.button
                         key={item.id}
                         onClick={() => handleNavClick(item.section)}
-                        className={`w-full text-left px-6 py-4 text-base font-medium transition-all duration-300 hover:bg-gray-50 ${
+                        className={`w-full text-left px-6 py-4 text-base font-medium transition-all duration-300 hover:bg-gray-700/50 ${
                           activeSection === item.id
-                            ? 'bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 border-r-4 border-blue-600'
-                            : 'text-gray-700'
+                            ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-400 border-r-4 border-blue-500'
+                            : 'text-gray-200 hover:text-white'
                         }`}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}

@@ -45,20 +45,20 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-blue-600 to-purple-600" />
       
       {/* Background Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-slate-900/95 to-gray-900/95" />
       
       {/* Content Container */}
       <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="max-w-6xl mx-auto">
           {/* Hero Text */}
           <div className="text-center mb-8 md:mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-2">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight px-2">
               Master Code, Design, AI & Leadership —{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Become the CTO of Tomorrow
               </span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
               Join the next generation of technical leaders with comprehensive courses 
               designed to build well-rounded CTOs who excel in every aspect of technology leadership.
             </p>
@@ -109,7 +109,7 @@ export default function Hero() {
             >
               Join the Waitlist
             </Button>
-            <p className="text-gray-500 mt-4 text-sm px-2">
+            <p className="text-gray-400 mt-4 text-sm px-2">
               Be the first to know when courses launch
             </p>
           </div>
@@ -118,8 +118,8 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2" />
+        <div className="w-6 h-10 border-2 border-gray-500 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-gray-500 rounded-full mt-2" />
         </div>
       </div>
     </section>

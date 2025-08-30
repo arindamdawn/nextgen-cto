@@ -67,14 +67,14 @@ const RoadmapCard = ({
 }) => {
   // Temporarily disable all motion animations
   return (
-    <div className="relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+    <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/50 overflow-hidden group hover:shadow-xl hover:border-gray-600/50 transition-all duration-300">
       {/* Gradient Header */}
       <div className={cn("h-2 bg-gradient-to-r", roadmap.color)} />
 
       <div className="p-4 sm:p-6">
         {/* Card Header */}
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-2xl font-bold text-gray-900">{roadmap.title}</h3>
+          <h3 className="text-2xl font-bold text-white">{roadmap.title}</h3>
           {roadmap.externalLink && (
             <a
               href={roadmap.externalLink}
@@ -88,7 +88,7 @@ const RoadmapCard = ({
           )}
         </div>
 
-        <p className="text-gray-600 mb-6">{roadmap.description}</p>
+        <p className="text-gray-300 mb-6">{roadmap.description}</p>
 
         {/* Timeline Steps */}
         <div className="space-y-3">
@@ -109,22 +109,22 @@ const RoadmapCard = ({
 
               {/* Step Content */}
               <div className="flex-1 flex items-center justify-between">
-                <span className="text-gray-800 font-medium group-hover/step:text-gray-900 transition-colors">
+                <span className="text-gray-200 font-medium group-hover/step:text-white transition-colors">
                   {step.title}
                 </span>
-                <ArrowRight className="w-4 h-4 text-gray-400 opacity-0 group-hover/step:opacity-100 transition-opacity" />
+                <ArrowRight className="w-4 h-4 text-gray-500 opacity-0 group-hover/step:opacity-100 transition-opacity" />
               </div>
             </div>
           ))}
         </div>
 
         {/* Progress Bar */}
-        <div className="mt-6 pt-4 border-t border-gray-100">
-          <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
+        <div className="mt-6 pt-4 border-t border-gray-600">
+          <div className="flex items-center justify-between text-sm text-gray-400 mb-2">
             <span>Learning Path</span>
             <span>{roadmap.steps.length} Steps</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-gray-700 rounded-full h-2">
             <div className={cn("h-2 rounded-full bg-gradient-to-r w-full", roadmap.color)} />
           </div>
         </div>
@@ -139,10 +139,10 @@ export default function Roadmaps() {
     <div className="container mx-auto px-4">
       <ScrollReveal>
         <div className="text-center mb-12 md:mb-16 px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Learning Roadmaps
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
             Structured learning paths designed to take you from beginner to
             expert in the most in-demand skills for modern CTOs
           </p>
@@ -158,7 +158,7 @@ export default function Roadmaps() {
       {/* Call to Action */}
       <ScrollReveal delay={0.4}>
         <div className="text-center mt-16">
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-gray-300 mb-6">
             Ready to start your journey? Join our waitlist to get early access
             to these comprehensive learning paths.
           </p>
