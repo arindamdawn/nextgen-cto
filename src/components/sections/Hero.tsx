@@ -6,8 +6,11 @@ import { Button } from '@/components/ui/button';
 import { smoothScrollTo, fadeInUp, staggerContainer } from '@/lib/utils';
 import EnhancedYouTube from '@/components/ui/EnhancedYouTube';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import { landingPageConfig } from '@/config/landingPageConfig';
 
 export default function Hero() {
+  const { hero } = landingPageConfig;
+  
   const handleJoinWaitlist = () => {
     smoothScrollTo('waitlist');
   };
@@ -53,14 +56,13 @@ export default function Hero() {
           {/* Hero Text */}
           <div className="text-center mb-8 md:mb-12">
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight px-2">
-              Master Code, Design, AI & Leadership —{' '}
+              {hero.title.main}{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Become the CTO of Tomorrow
+                {hero.title.highlight}
               </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-              Join the next generation of technical leaders with comprehensive courses 
-              designed to build well-rounded CTOs who excel in every aspect of technology leadership.
+              {hero.subtitle}
             </p>
           </div>
 
@@ -84,8 +86,8 @@ export default function Hero() {
               >
                 <div className="aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-xl md:shadow-2xl bg-gray-100">
                   <EnhancedYouTube
-                    videoId="hw2nv3jIgZs"
-                    title="Biggest DSA in Java Course"
+                    videoId={hero.video.videoId}
+                    title={hero.video.title}
                     opts={videoOptions}
                     className="w-full h-full"
                     showLoadingState={true}
@@ -107,10 +109,10 @@ export default function Hero() {
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
-              Join the Waitlist
+              {hero.cta.text}
             </Button>
             <p className="text-gray-400 mt-4 text-sm px-2">
-              Be the first to know when courses launch
+              {hero.cta.subtext}
             </p>
           </div>
         </div>

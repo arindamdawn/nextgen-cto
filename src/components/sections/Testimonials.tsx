@@ -6,47 +6,10 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import { Testimonial } from '@/types';
-
-const testimonials: Testimonial[] = [
-  {
-    id: '1',
-    name: 'Sarah Chen',
-    role: 'Senior Software Engineer',
-    company: 'Google',
-    feedback: 'The NextGen-CTO program transformed my understanding of leadership in tech. The AI/ML roadmap was particularly comprehensive and helped me transition from a developer to a technical leader.',
-    avatar: '/api/placeholder/64/64',
-    rating: 5,
-  },
-  {
-    id: '2',
-    name: 'Marcus Rodriguez',
-    role: 'Product Manager',
-    company: 'Microsoft',
-    feedback: 'Incredible depth of content across all domains. The design roadmap opened up new perspectives on user experience that I never considered as a PM. Highly recommend!',
-    avatar: '/api/placeholder/64/64',
-    rating: 5,
-  },
-  {
-    id: '3',
-    name: 'Priya Patel',
-    role: 'Tech Lead',
-    company: 'Stripe',
-    feedback: 'The coding roadmap PDF was a game-changer. It provided a clear path from basics to advanced concepts. The structured approach helped me mentor my team more effectively.',
-    avatar: '/api/placeholder/64/64',
-    rating: 5,
-  },
-  {
-    id: '4',
-    name: 'David Kim',
-    role: 'Engineering Manager',
-    company: 'Airbnb',
-    feedback: 'What sets this program apart is the holistic approach. Learning code, design, AI, and leadership together gave me the complete toolkit I needed to become a well-rounded CTO.',
-    avatar: '/api/placeholder/64/64',
-    rating: 5,
-  },
-];
+import { landingPageConfig } from '@/config/landingPageConfig';
 
 export default function Testimonials() {
+  const { testimonials } = landingPageConfig;
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState<number>(0);
@@ -56,11 +19,11 @@ export default function Testimonials() {
   const minSwipeDistance = 50;
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.data.length);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.data.length) % testimonials.data.length);
   };
 
   const goToTestimonial = (index: number) => {
@@ -114,10 +77,10 @@ export default function Testimonials() {
       <ScrollReveal>
         <div className="text-center mb-8 sm:mb-12 md:mb-16 px-2 sm:px-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-            What Our Students Say
+            {testimonials.title}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Join thousands of professionals who have transformed their careers with NextGen-CTO
+            {testimonials.subtitle}
           </p>
         </div>
       </ScrollReveal>
@@ -141,7 +104,7 @@ export default function Testimonials() {
               <div className="flex-1 flex flex-col justify-center">
                 {/* Rating Stars */}
                 <div className="flex justify-center mb-4 sm:mb-6">
-                  {[...Array(testimonials[currentIndex].rating || 5)].map((_, i) => (
+                  {[...Array(testimonials.data[currentIndex].rating || 5)].map((_, i) => (
                     <Star
                       key={i}
                       className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current mx-0.5"
@@ -151,23 +114,23 @@ export default function Testimonials() {
 
                 {/* Testimonial Text */}
                 <blockquote className="text-sm sm:text-base md:text-lg text-gray-200 text-center leading-relaxed mb-4 sm:mb-6 md:mb-8 px-2">
-                  &ldquo;{testimonials[currentIndex].feedback}&rdquo;
+                  &ldquo;{testimonials.data[currentIndex].feedback}&rdquo;
                 </blockquote>
               </div>
 
               {/* Author Info */}
               <div className="flex items-center justify-center flex-shrink-0">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm sm:text-lg md:text-xl mr-3 sm:mr-4 flex-shrink-0">
-                  {testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}
+                  {testimonials.data[currentIndex].name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div className="text-left min-w-0">
                   <div className="font-semibold text-white text-sm sm:text-base truncate">
-                    {testimonials[currentIndex].name}
+                    {testimonials.data[currentIndex].name}
                   </div>
                   <div className="text-gray-300 text-xs sm:text-sm">
-                    <div className="truncate">{testimonials[currentIndex].role}</div>
-                    {testimonials[currentIndex].company && (
-                      <div className="text-blue-400 truncate">@ {testimonials[currentIndex].company}</div>
+                    <div className="truncate">{testimonials.data[currentIndex].role}</div>
+                    {testimonials.data[currentIndex].company && (
+                      <div className="text-blue-400 truncate">@ {testimonials.data[currentIndex].company}</div>
                     )}
                   </div>
                 </div>
@@ -190,7 +153,7 @@ export default function Testimonials() {
 
           {/* Dots Indicator */}
           <div className="flex space-x-2 sm:space-x-3 mx-4 sm:mx-6">
-            {testimonials.map((_, index) => (
+            {testimonials.data.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToTestimonial(index)}
@@ -218,7 +181,7 @@ export default function Testimonials() {
         {/* Auto-advance indicator */}
         <div className="text-center mt-4">
           <p className="text-sm text-gray-400">
-            {currentIndex + 1} of {testimonials.length}
+            {currentIndex + 1} of {testimonials.data.length}
           </p>
         </div>
       </div>
@@ -227,7 +190,7 @@ export default function Testimonials() {
       <div className="hidden lg:block mt-12 xl:mt-16">
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto px-4">
-            {testimonials.slice(0, 3).map((testimonial, index) => (
+            {testimonials.data.slice(0, 3).map((testimonial, index) => (
               <div
                 key={testimonial.id}
                 className="bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 p-4 lg:p-6 shadow-md hover:shadow-lg hover:border-gray-600/50 transition-all duration-300"

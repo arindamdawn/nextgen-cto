@@ -5,58 +5,9 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 import ScrollReveal from "../animations/ScrollReveal";
 import { Roadmap } from "@/types";
 import { cn } from "@/lib/utils";
+import { landingPageConfig } from '@/config/landingPageConfig';
 
-const roadmapsData: Roadmap[] = [
-  {
-    id: "ai-ml",
-    title: "AI/ML",
-    description:
-      "Master artificial intelligence and machine learning from fundamentals to advanced applications",
-    color: "from-blue-500 to-purple-600",
-    steps: [
-      { id: "python", title: "Python" },
-      { id: "math", title: "Math" },
-      { id: "classical-ml", title: "Classical ML" },
-      { id: "deep-learning", title: "Deep Learning" },
-      { id: "cv-nlp", title: "CV & NLP" },
-      { id: "transformers", title: "Transformers" },
-      { id: "genai-llms", title: "GenAI & LLMs" },
-      { id: "agents", title: "Agents" },
-      { id: "mlops", title: "MLOps" },
-      { id: "tpm-ai", title: "TPM AI for PM" },
-    ],
-  },
-  {
-    id: "design",
-    title: "Design",
-    description:
-      "Learn comprehensive design skills from prototyping to advanced visual effects",
-    color: "from-pink-500 to-orange-500",
-    steps: [
-      { id: "figma", title: "Figma" },
-      { id: "protopie", title: "ProtoPie/Principle" },
-      { id: "after-effects", title: "After Effects/Lottie" },
-      { id: "premiere", title: "Premiere Pro/Resolve" },
-      { id: "blender", title: "Blender/Photoshop/Illustrator" },
-      { id: "runway", title: "Runway/Descript/MidJourney" },
-    ],
-  },
-  {
-    id: "coding",
-    title: "Coding",
-    description: "Comprehensive coding roadmap from zero to hero",
-    color: "from-green-500 to-teal-600",
-    externalLink:
-      "https://github.com/team-codebug/leetcode/blob/main/ZERO2HERO%20(1).pdf",
-    steps: [
-      { id: "fundamentals", title: "Programming Fundamentals" },
-      { id: "data-structures", title: "Data Structures" },
-      { id: "algorithms", title: "Algorithms" },
-      { id: "system-design", title: "System Design" },
-      { id: "advanced-topics", title: "Advanced Topics" },
-    ],
-  },
-];
+
 
 const RoadmapCard = ({
   roadmap,
@@ -134,23 +85,24 @@ const RoadmapCard = ({
 };
 
 export default function Roadmaps() {
+  const { roadmaps } = landingPageConfig;
+  
   // Temporarily disable all motion animations
   return (
     <div className="container mx-auto px-4">
       <ScrollReveal>
         <div className="text-center mb-12 md:mb-16 px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Learning Roadmaps
+            {roadmaps.title}
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            Structured learning paths designed to take you from beginner to
-            expert in the most in-demand skills for modern CTOs
+            {roadmaps.subtitle}
           </p>
         </div>
       </ScrollReveal>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4">
-        {roadmapsData.map((roadmap, index) => (
+        {roadmaps.data.map((roadmap, index) => (
           <RoadmapCard key={roadmap.id} roadmap={roadmap} index={index} />
         ))}
       </div>
@@ -159,8 +111,7 @@ export default function Roadmaps() {
       <ScrollReveal delay={0.4}>
         <div className="text-center mt-16">
           <p className="text-lg text-gray-300 mb-6">
-            Ready to start your journey? Join our waitlist to get early access
-            to these comprehensive learning paths.
+            {roadmaps.cta.text}
           </p>
           <button
             onClick={() => {
@@ -171,7 +122,7 @@ export default function Roadmaps() {
             }}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
           >
-            Join the Waitlist
+            {roadmaps.cta.buttonText}
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>

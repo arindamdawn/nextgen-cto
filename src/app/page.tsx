@@ -15,8 +15,10 @@ import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { usePerformanceMonitoring } from "@/hooks/usePerformanceMonitoring";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import PerformanceOptimizer from "@/components/PerformanceOptimizer";
+import { landingPageConfig } from "@/config/landingPageConfig";
 
 export default function Home() {
+  const { sections } = landingPageConfig;
   const [isLoaded, setIsLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
   const { isVisible: showScrollTop, scrollToTop } = useScrollToTop(400);
@@ -113,7 +115,7 @@ export default function Home() {
         >
           <section 
             id="hero" 
-            className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900"
+            className={`relative min-h-screen flex items-center justify-center ${sections.hero.backgroundColor}`}
           >
             <Hero />
           </section>
@@ -125,7 +127,7 @@ export default function Home() {
           <ErrorBoundary>
             <section 
               id="roadmaps" 
-              className="py-16 md:py-24 lg:py-32 bg-gray-800/50"
+              className={`py-16 md:py-24 lg:py-32 ${sections.roadmaps.backgroundColor}`}
             >
               <Roadmaps />
             </section>
@@ -135,7 +137,7 @@ export default function Home() {
           <ErrorBoundary>
             <section 
               id="instructor" 
-              className="py-16 md:py-24 lg:py-32 bg-gray-900"
+              className={`py-16 md:py-24 lg:py-32 ${sections.instructor.backgroundColor}`}
             >
               <Instructor />
             </section>
@@ -145,7 +147,7 @@ export default function Home() {
           <ErrorBoundary>
             <section 
               id="testimonials" 
-              className="py-16 md:py-24 lg:py-32 bg-gray-800/30"
+              className={`py-16 md:py-24 lg:py-32 ${sections.testimonials.backgroundColor}`}
             >
               <Testimonials />
             </section>
@@ -155,7 +157,7 @@ export default function Home() {
           <ErrorBoundary>
             <section 
               id="waitlist" 
-              className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 relative overflow-hidden"
+              className={`py-16 md:py-24 lg:py-32 ${sections.waitlist.backgroundColor} relative overflow-hidden`}
             >
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />

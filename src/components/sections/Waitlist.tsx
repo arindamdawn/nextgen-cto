@@ -16,6 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { landingPageConfig } from '@/config/landingPageConfig';
 
 // Mock API call function
 const submitToWaitlist = async (data: WaitlistFormData): Promise<{ success: boolean; message: string }> => {
@@ -42,6 +43,7 @@ const submitToWaitlist = async (data: WaitlistFormData): Promise<{ success: bool
 };
 
 export default function Waitlist() {
+  const { waitlist } = landingPageConfig;
   const [submissionState, setSubmissionState] = useState<FormSubmissionState>('idle');
   const [submissionMessage, setSubmissionMessage] = useState<string>('');
 
@@ -80,11 +82,10 @@ export default function Waitlist() {
       <div className="text-center">
         <div className="mb-8 px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Join Waitlist Now
+            {waitlist.title}
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
-            Be the first to know when our comprehensive CTO courses launch. 
-            Get exclusive early access and special pricing.
+            {waitlist.subtitle}
           </p>
         </div>
 
@@ -94,7 +95,7 @@ export default function Waitlist() {
               <div className="text-center py-8">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                 <h3 className="text-2xl font-semibold text-white mb-2">
-                  You&apos;re In!
+                  {waitlist.successMessage.title}
                 </h3>
                 <p className="text-gray-300">
                   {submissionMessage}
@@ -119,13 +120,13 @@ export default function Waitlist() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-left block text-gray-300 font-medium">
-                          Email Address
+                          {waitlist.form.emailLabel}
                         </FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                             <Input
-                              placeholder="Enter your email address"
+                              placeholder={waitlist.form.emailPlaceholder}
                               className="pl-10 h-12 text-lg bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                               {...field}
                               disabled={submissionState === 'loading'}
@@ -143,11 +144,11 @@ export default function Waitlist() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-left block text-gray-300 font-medium">
-                          Name (Optional)
+                          {waitlist.form.nameLabel}
                         </FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Your name"
+                            placeholder={waitlist.form.namePlaceholder}
                             className="h-12 text-lg bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                             {...field}
                             disabled={submissionState === 'loading'}
@@ -173,10 +174,10 @@ export default function Waitlist() {
                     {submissionState === 'loading' ? (
                       <>
                         <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                        Joining Waitlist...
+                        {waitlist.form.loadingText}
                       </>
                     ) : (
-                      'Join the Waitlist'
+                      waitlist.form.submitText
                     )}
                   </Button>
                 </form>
@@ -187,7 +188,7 @@ export default function Waitlist() {
 
         <div className="mt-8">
           <p className="text-sm text-gray-400">
-            No spam, ever. Unsubscribe at any time.
+            {waitlist.disclaimer}
           </p>
         </div>
       </div>
