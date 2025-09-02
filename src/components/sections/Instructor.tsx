@@ -118,7 +118,7 @@ export default function Instructor() {
               <div className="grid lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2">
                   <blockquote className="text-lg lg:text-xl text-gray-300 italic leading-relaxed">
-                    "My mission is to democratize high-quality technical education and build a generation of well-rounded technical leaders who can drive innovation at the intersection of technology and business."
+                    &ldquo;My mission is to democratize high-quality technical education and build a generation of well-rounded technical leaders who can drive innovation at the intersection of technology and business.&rdquo;
                   </blockquote>
                 </div>
                 <div className="lg:col-span-1">

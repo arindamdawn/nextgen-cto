@@ -1,24 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextGen-CTO Landing Page
+
+A modern landing page for NextGen-CTO courses with integrated Google Sheets waitlist functionality.
+
+## Features
+
+- 🎯 Modern, responsive design with Tailwind CSS
+- 📝 Waitlist form with Google Sheets integration
+- 🎨 Shadcn/ui components
+- ⚡ Next.js 14 with App Router
+- 🔒 Form validation with Zod
+- 📊 Real-time data submission to Google Sheets
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+- Google Cloud account (for Sheets integration)
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Set up Google Sheets integration (see [GOOGLE_SHEETS_SETUP.md](./GOOGLE_SHEETS_SETUP.md))
+
+4. Create `.env.local` file with your Google service account credentials:
+
+```env
+GOOGLE_SERVICE_ACCOUNT_EMAIL=your-service-account@your-project.iam.gserviceaccount.com
+GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOUR_PRIVATE_KEY_HERE\n-----END PRIVATE KEY-----\n"
+```
+
+5. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Google Sheets Integration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The waitlist form automatically submits data to a Google Sheet. To set this up:
+
+1. Follow the detailed setup guide in [GOOGLE_SHEETS_SETUP.md](./GOOGLE_SHEETS_SETUP.md)
+2. Test the connection by visiting `/api/test-sheets` after setup
+3. The target sheet: [NextGen-CTO Waitlist](https://docs.google.com/spreadsheets/d/1et5vnMqLptGodbs9W7jzoLpnItKxdB6XK1E6NSAPui8/edit)
+
+### Data Structure
+
+The form submits the following data to the sheet:
+- **Timestamp**: When the form was submitted
+- **Email**: User's email address (required)
+- **Name**: User's name (optional)
+- **Source**: Always "NextGen-CTO Landing Page"
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/
+│   │   ├── waitlist/          # Waitlist form API endpoint
+│   │   └── test-sheets/       # Google Sheets connection test
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── sections/
+│   │   └── Waitlist.tsx       # Main waitlist form component
+│   └── ui/                    # Shadcn/ui components
+└── lib/
+    └── validations.ts         # Form validation schemas
+```
 
 ## Learn More
 
