@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import ScrollReveal from '../animations/ScrollReveal';
 import { landingPageConfig } from '@/config/landingPageConfig';
 
@@ -34,9 +35,11 @@ export default function Instructor() {
                       <div className="relative inline-block">
                         <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto lg:mx-0">
                           {instructor.avatar ? (
-                            <img 
+                            <Image 
                               src={instructor.avatar} 
                               alt={instructor.name}
+                              width={256}
+                              height={256}
                               className="w-full h-full object-cover rounded-full border-3 border-blue-500/60 shadow-lg"
                             />
                           ) : (

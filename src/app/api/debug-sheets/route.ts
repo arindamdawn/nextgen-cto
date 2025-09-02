@@ -94,7 +94,7 @@ export async function GET() {
       success: true,
       metadata: {
         title: metadata.properties?.title,
-        sheets: metadata.sheets?.map((sheet: any) => ({
+        sheets: metadata.sheets?.map((sheet: { properties?: { title?: string; sheetId?: number; gridProperties?: unknown } }) => ({
           title: sheet.properties?.title,
           sheetId: sheet.properties?.sheetId,
           gridProperties: sheet.properties?.gridProperties

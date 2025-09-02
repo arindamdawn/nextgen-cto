@@ -15,11 +15,11 @@ interface StaggerRevealProps {
 export default function StaggerReveal({
   children,
   className = "",
-  delay = 0,
-  staggerDelay = 0.1,
-  direction = "up",
-  duration = 0.6,
-  threshold = 0.1,
+  // delay = 0,
+  // staggerDelay = 0.1,
+  // direction = "up",
+  // duration = 0.6,
+  // threshold = 0.1,
 }: StaggerRevealProps) {
   // Temporarily disable all animations - render content directly
   return (

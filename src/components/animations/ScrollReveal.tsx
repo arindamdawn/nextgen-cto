@@ -16,12 +16,12 @@ interface ScrollRevealProps {
 export default function ScrollReveal({
   children,
   className = "",
-  delay = 0,
-  direction = "up",
-  duration = 0.6,
-  threshold = 0.1,
-  stagger = false,
-  staggerDelay = 0.1,
+  // delay = 0,
+  // direction = "up",
+  // duration = 0.6,
+  // threshold = 0.1,
+  // stagger = false,
+  // staggerDelay = 0.1,
 }: ScrollRevealProps) {
   // Temporarily disable all animations - render content directly
   return (

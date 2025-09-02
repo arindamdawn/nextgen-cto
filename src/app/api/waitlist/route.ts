@@ -7,9 +7,7 @@ const GOOGLE_SHEETS_ID = '1et5vnMqLptGodbs9W7jzoLpnItKxdB6XK1E6NSAPui8';
 const GOOGLE_SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
 const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY;
 
-interface GoogleSheetsRow {
-  values: (string | number)[][];
-}
+
 
 async function getGoogleSheetsAccessToken(): Promise<string> {
   if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY) {

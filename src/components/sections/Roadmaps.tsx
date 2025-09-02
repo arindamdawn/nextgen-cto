@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import ScrollReveal from "../animations/ScrollReveal";
 import { Roadmap } from "@/types";
@@ -11,7 +11,6 @@ import { landingPageConfig } from '@/config/landingPageConfig';
 
 const RoadmapCard = ({
   roadmap,
-  index,
 }: {
   roadmap: Roadmap;
   index: number;

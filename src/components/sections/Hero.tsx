@@ -1,9 +1,9 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { smoothScrollTo, fadeInUp, staggerContainer } from '@/lib/utils';
+import { smoothScrollTo } from '@/lib/utils';
 import EnhancedYouTube from '@/components/ui/EnhancedYouTube';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import { landingPageConfig } from '@/config/landingPageConfig';
@@ -28,19 +28,19 @@ export default function Hero() {
     },
   };
 
-  const backgroundAnimation = {
-    background: [
-      'linear-gradient(45deg, #3B82F6, #1D4ED8)',
-      'linear-gradient(45deg, #1D4ED8, #8B5CF6)',
-      'linear-gradient(45deg, #8B5CF6, #3B82F6)',
-      'linear-gradient(45deg, #3B82F6, #1D4ED8)',
-    ],
-    transition: {
-      duration: 8,
-      repeat: Infinity,
-      ease: 'linear' as const,
-    },
-  };
+  // const backgroundAnimation = {
+  //   background: [
+  //     'linear-gradient(45deg, #3B82F6, #1D4ED8)',
+  //     'linear-gradient(45deg, #1D4ED8, #8B5CF6)',
+  //     'linear-gradient(45deg, #8B5CF6, #3B82F6)',
+  //     'linear-gradient(45deg, #3B82F6, #1D4ED8)',
+  //   ],
+  //   transition: {
+  //     duration: 8,
+  //     repeat: Infinity,
+  //     ease: 'linear' as const,
+  //   },
+  // };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

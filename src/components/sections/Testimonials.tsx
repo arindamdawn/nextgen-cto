@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+// import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import { Testimonial } from '@/types';
+// import { Testimonial } from '@/types';
 import { landingPageConfig } from '@/config/landingPageConfig';
 
 export default function Testimonials() {
@@ -18,13 +18,13 @@ export default function Testimonials() {
   // Minimum swipe distance (in px)
   const minSwipeDistance = 50;
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.data.length);
-  };
+  }, [testimonials.data.length]);
 
-  const prevTestimonial = () => {
+  const prevTestimonial = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.data.length) % testimonials.data.length);
-  };
+  }, [testimonials.data.length]);
 
   const goToTestimonial = (index: number) => {
     setCurrentIndex(index);
@@ -70,7 +70,7 @@ export default function Testimonials() {
       container.addEventListener('keydown', handleKeyDown);
       return () => container.removeEventListener('keydown', handleKeyDown);
     }
-  }, []);
+  }, [nextTestimonial, prevTestimonial]);
 
   return (
     <div className="container mx-auto px-4">
@@ -190,7 +190,7 @@ export default function Testimonials() {
       <div className="hidden lg:block mt-12 xl:mt-16">
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto px-4">
-            {testimonials.data.slice(0, 3).map((testimonial, index) => (
+            {testimonials.data.slice(0, 3).map((testimonial) => (
               <div
                 key={testimonial.id}
                 className="bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 p-4 lg:p-6 shadow-md hover:shadow-lg hover:border-gray-600/50 transition-all duration-300"

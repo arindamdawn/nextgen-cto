@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// import { motion, AnimatePresence } from "framer-motion";
 import Hero from "@/components/sections/Hero";
 import Roadmaps from "@/components/sections/Roadmaps";
 import Instructor from "@/components/sections/Instructor";
@@ -63,23 +63,23 @@ export default function Home() {
   };
 
   // Page transition variants - temporarily disabled
-  const pageVariants = {
-    initial: { opacity: 1 },
-    animate: { 
-      opacity: 1,
-      transition: { 
-        duration: 0,
-        ease: [0.25, 0.1, 0.25, 1] as const
-      }
-    },
-    exit: { 
-      opacity: 1,
-      transition: { 
-        duration: 0,
-        ease: [0.25, 0.1, 0.25, 1] as const
-      }
-    }
-  };
+  // const pageVariants = {
+  //   initial: { opacity: 1 },
+  //   animate: { 
+  //     opacity: 1,
+  //     transition: { 
+  //       duration: 0,
+  //       ease: [0.25, 0.1, 0.25, 1] as const
+  //     }
+  //   },
+  //   exit: { 
+  //     opacity: 1,
+  //     transition: { 
+  //       duration: 0,
+  //       ease: [0.25, 0.1, 0.25, 1] as const
+  //     }
+  //   }
+  // };
 
   return (
     <PerformanceOptimizer enableOptimizations={true}>
