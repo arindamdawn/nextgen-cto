@@ -26,33 +26,35 @@ export default function Instructor() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/50 overflow-hidden">
               <div className="p-6 sm:p-8 lg:p-12">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                  
-                  {/* Left Side: Photo + Stats */}
-                  <div className="flex flex-col items-center lg:items-start space-y-6">
-                    {/* Instructor Photo */}
-                    <div className="text-center lg:text-left">
-                      <div className="relative inline-block">
-                        <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto lg:mx-0">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
+
+                  {/* Left Side: Photo (stacked on mobile) */}
+                  <div className="flex flex-col items-center space-y-6 order-1 lg:order-none">
+                    <div className="relative">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 opacity-10 blur-3xl" />
+                      </div>
+                      <div className="relative z-10">
+                        <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto">
                           {instructor.avatar ? (
-                            <Image 
-                              src={instructor.avatar} 
+                            <Image
+                              src={instructor.avatar}
                               alt={instructor.name}
-                              width={256}
-                              height={256}
-                              className="w-full h-full object-cover rounded-full border-3 border-blue-500/60 shadow-lg"
+                              width={320}
+                              height={320}
+                              className="w-full h-full object-cover rounded-full border-4 border-transparent shadow-2xl"
                             />
                           ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full border-3 border-blue-500/60 flex items-center justify-center shadow-lg">
-                              <svg 
-                                className="w-24 h-24 sm:w-28 sm:h-28 text-blue-400" 
-                                fill="currentColor" 
+                            <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
+                              <svg
+                                className="w-24 h-24 sm:w-28 sm:h-28 text-white/80"
+                                fill="currentColor"
                                 viewBox="0 0 20 20"
                               >
-                                <path 
-                                  fillRule="evenodd" 
-                                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" 
-                                  clipRule="evenodd" 
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                  clipRule="evenodd"
                                 />
                               </svg>
                             </div>
@@ -63,7 +65,7 @@ export default function Instructor() {
                   </div>
 
                   {/* Right Side: Content */}
-                  <div className="text-center lg:text-left">
+                  <div className="text-center lg:text-left order-2 lg:order-none">
                     <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
                       {instructor.name}
                     </h3>
