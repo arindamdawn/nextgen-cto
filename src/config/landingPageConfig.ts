@@ -181,15 +181,14 @@ export const landingPageConfig: LandingPageConfig = {
     role: "Tech Leader & Educator | Ex-FAANG",
     avatar: "/images/anuj-kumar-profile-image.jpeg",
     bio: [
-      "From starting with basic programming concepts to leading engineering teams at top-tier companies like Google and Amazon, my journey has been driven by one core belief: great technology leaders are built through practical, hands-on learning combined with real-world industry experience.",
-      "Over the past 8 years, I've helped build scalable systems serving millions of users, led cross-functional teams, and mentored 1000+ engineers in their career growth. My expertise spans full-stack development, AI/ML implementation, system design, and most importantly - translating technical complexity into business impact.",
+      "From starting with basic programming concepts to leading engineering teams at top-tier companies like Adobe and Intuit, my journey has been driven by one core belief: great technology leaders are built through practical, hands-on learning combined with real-world industry experience.",
+      "Over the past 9+ years, I've helped build scalable systems serving millions of users, led cross-functional teams, and mentored 1000+ engineers in their career growth. My expertise spans full-stack development, AI/ML implementation, system design, and most importantly - translating technical complexity into business impact.",
       "I founded NextGen-CTO because I realized that most technical education focuses on individual skills in isolation. Modern CTOs need to master the intersection of code, design, AI, and leadership. Through this platform, I'm committed to building the next generation of technical leaders who can drive innovation at scale."
     ],
     credentials: [
-      { text: "Ex-Google & Amazon", color: "bg-blue-100 text-blue-800" },
-      { text: "1000+ Engineers Mentored", color: "bg-green-100 text-green-800" },
-      { text: "8+ Years in Tech Leadership", color: "bg-purple-100 text-purple-800" },
-      { text: "Startup to Scale Experience", color: "bg-orange-100 text-orange-800" }
+      { text: "Ex-Adobe & Intuit", color: "bg-blue-100 text-blue-800" },
+      { text: "7000+ Engineers Mentored", color: "bg-green-100 text-green-800" },
+      { text: "9+ Years in Tech Leadership", color: "bg-purple-100 text-purple-800" }
     ]
   },
   testimonials: {
@@ -272,7 +271,7 @@ export const landingPageConfig: LandingPageConfig = {
       },
       {
         name: 'YouTube',
-        href: 'https://youtube.com/@nextgencto',
+        href: 'https://www.youtube.com/@CodingwithCTOBhaiya',
         icon: 'youtube'
       }
     ],
