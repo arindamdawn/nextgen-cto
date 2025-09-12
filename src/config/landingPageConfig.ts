@@ -137,8 +137,7 @@ export const landingPageConfig: LandingPageConfig = {
           { id: "transformers", title: "Transformers" },
           { id: "genai-llms", title: "GenAI & LLMs" },
           { id: "agents", title: "Agents" },
-          { id: "mlops", title: "MLOps" },
-          { id: "tpm-ai", title: "TPM AI for PM" },
+          { id: "mlops", title: "MLOps" }
         ],
       },
       {
@@ -247,7 +246,7 @@ export const landingPageConfig: LandingPageConfig = {
 
           { id: "portfolio-building", title: "Portfolio Building (Notion / Devfolio)" },
 
-                    { id: "internship-referral-applications", title: "Internship & Referral Applications" },
+          { id: "internship-referral-applications", title: "Internship & Referral Applications" },
 
         ],
 
