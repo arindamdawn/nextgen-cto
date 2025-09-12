@@ -156,18 +156,101 @@ export const landingPageConfig: LandingPageConfig = {
         ],
       },
       {
+
         id: "coding",
+
         title: "Coding",
+
         description: "Comprehensive coding roadmap from zero to hero",
+
         color: "from-green-500 to-teal-600",
+
         externalLink: "https://github.com/team-codebug/leetcode/blob/main/ZERO2HERO%20(1).pdf",
+
         steps: [
-          { id: "fundamentals", title: "Programming Fundamentals" },
-          { id: "data-structures", title: "Data Structures" },
-          { id: "algorithms", title: "Algorithms" },
-          { id: "system-design", title: "System Design" },
-          { id: "advanced-topics", title: "Advanced Topics" },
+
+          { id: "figma", title: "Figma" },
+
+          { id: "github", title: "GitHub" },
+
+          { id: "resume-writing", title: "Resume Writing" },
+
+          { id: "linkedin-optimization", title: "LinkedIn Optimization" },
+
+          { id: "computer-fundamentals", title: "Computer Fundamentals" },
+
+          { id: "programming-language", title: "Programming Language (Java / JavaScript / Python)" },
+
+          { id: "data-structures-algorithms", title: "Data Structures & Algorithms" },
+
+          { id: "oop", title: "Object-Oriented Programming" },
+
+          { id: "java-generics", title: "Java Generics" },
+
+          { id: "multithreading", title: "Multithreading" },
+
+          { id: "operating-systems", title: "Operating Systems" },
+
+          { id: "networking", title: "Networking" },
+
+          { id: "dbms", title: "DBMS" },
+
+          { id: "postgresql", title: "PostgreSQL" },
+
+          { id: "mongodb", title: "MongoDB" },
+
+          { id: "linux", title: "Linux" },
+
+          { id: "bash-scripting", title: "Bash Scripting" },
+
+          { id: "html", title: "HTML" },
+
+          { id: "css", title: "CSS" },
+
+          { id: "tailwindcss", title: "TailwindCSS" },
+
+          { id: "react", title: "React" },
+
+          { id: "nextjs", title: "Next.js" },
+
+          { id: "nodejs", title: "Node.js" },
+
+          { id: "nestjs", title: "NestJS" },
+
+          { id: "monorepo-management", title: "Monorepo Management (Turborepo / Nx)" },
+
+          { id: "low-level-design", title: "Low-Level Design" },
+
+          { id: "design-patterns", title: "Design Patterns" },
+
+          { id: "uml-interface-design", title: "UML & Interface Design" },
+
+          { id: "distributed-systems", title: "Distributed Systems" },
+
+          { id: "system-design-projects", title: "System Design Projects" },
+
+          { id: "ai-projects", title: "AI Projects" },
+
+          { id: "prompt-engineering", title: "Prompt Engineering" },
+
+          { id: "ai-apis", title: "AI APIs" },
+
+          { id: "docker", title: "Docker" },
+
+          { id: "kubernetes", title: "Kubernetes" },
+
+          { id: "cloud-deployment", title: "Cloud Deployment (AWS / Vercel / Render)" },
+
+          { id: "project-demo-videos", title: "Project Demo Videos" },
+
+          { id: "community-engagement", title: "Community Engagement" },
+
+          { id: "portfolio-building", title: "Portfolio Building (Notion / Devfolio)" },
+
+          { id: "internship-referral-applications", title: "Internship & Referral Applications" },
+
         ],
+
       },
     ],
     cta: {
@@ -178,7 +261,7 @@ export const landingPageConfig: LandingPageConfig = {
   instructor: {
     title: "Meet Your Instructor",
     name: "Anuj Kumar",
-    role: "Tech Leader & Educator | Ex-FAANG",
+    role: "Tech Leader & Educator | Ex-Adobe, Intuit | Ex-CTO Monet | Instructor @NewtonSchool | NITK",
     avatar: "/images/anuj-kumar-profile-image.jpeg",
     bio: [
       "From starting with basic programming concepts to leading engineering teams at top-tier companies like Adobe and Intuit, my journey has been driven by one core belief: great technology leaders are built through practical, hands-on learning combined with real-world industry experience.",
