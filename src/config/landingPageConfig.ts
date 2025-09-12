@@ -247,11 +247,32 @@ export const landingPageConfig: LandingPageConfig = {
 
           { id: "portfolio-building", title: "Portfolio Building (Notion / Devfolio)" },
 
-          { id: "internship-referral-applications", title: "Internship & Referral Applications" },
+                    { id: "internship-referral-applications", title: "Internship & Referral Applications" },
 
         ],
 
       },
+
+      {
+
+        id: "pm",
+
+        title: "PM",
+
+        description: "Master product management skills with technical depth",
+
+        color: "from-purple-500 to-pink-600",
+
+        steps: [
+
+          { id: "tpm", title: "TPM" },
+
+          { id: "ai-for-pm", title: "AI for PM" },
+
+        ],
+
+      },
+
     ],
     cta: {
       text: "Ready to start your journey? Join our waitlist to get early access to these comprehensive learning paths.",
