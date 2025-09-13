@@ -142,9 +142,8 @@ export default function Roadmaps() {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-sm text-gray-200">Beta</span>
-                    <span className="text-sm text-gray-300">Estimated release: Q4</span>
+                  <div>
+                    <span className="text-sm text-gray-400">Stay in the loop — we'll notify when new roadmaps arrive.</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <button
