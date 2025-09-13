@@ -124,7 +124,7 @@ export default function Roadmaps() {
           // If two placeholders would be needed, render a single spanning placeholder to avoid redundancy
           if (placeholders === 2) {
             return (
-              <div key={`placeholder-span`} className="relative bg-gradient-to-br from-gray-800/60 via-gray-800/40 to-transparent backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/40 overflow-hidden p-6 flex flex-col justify-between lg:col-span-2">
+              <div key={`placeholder-span`} className="relative bg-gradient-to-br from-gray-800/60 via-gray-800/40 to-transparent backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/40 overflow-hidden p-6 flex flex-col justify-between md:col-span-2 lg:col-span-2">
                 <div>
                   <div className="inline-flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-md">
@@ -141,7 +141,7 @@ export default function Roadmaps() {
                   <p className="text-gray-400 mb-4">Expect deep, structured roadmaps covering trending domains and practical projects tailored for aspiring technical leaders.</p>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3">
                   <div>
                     <span className="text-sm text-gray-400">Stay in the loop — we&apos;ll notify when new roadmaps arrive.</span>
                   </div>
@@ -172,7 +172,7 @@ export default function Roadmaps() {
                 <p className="text-gray-300 mb-4">We&apos;re expanding our learning paths — new roadmaps will be added shortly to help you master more topics.</p>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3">
                 <span className="text-sm text-gray-400">Stay in the loop</span>
                 <button
                   onClick={() => {
