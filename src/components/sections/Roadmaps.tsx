@@ -121,6 +121,48 @@ export default function Roadmaps() {
           const perRow = 3;
           const remainder = roadmaps.data.length % perRow;
           const placeholders = remainder === 0 ? 0 : perRow - remainder;
+          // If two placeholders would be needed, render a single spanning placeholder to avoid redundancy
+          if (placeholders === 2) {
+            return (
+              <div key={`placeholder-span`} className="relative bg-gradient-to-br from-gray-800/60 via-gray-800/40 to-transparent backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/40 overflow-hidden p-6 flex flex-col justify-between lg:col-span-2">
+                <div>
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-md">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 11a1 1 0 011-1h2a1 1 0 010 2H4v5a1 1 0 01-2 0v-6z" />
+                        <path d="M7 7a1 1 0 011-1h8a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">More roadmaps coming soon</h3>
+                      <div className="mt-1 text-sm text-gray-300">We're building new learning paths — sign up to be notified when they launch.</div>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 mb-4">Expect deep, structured roadmaps covering trending domains and practical projects tailored for aspiring technical leaders.</p>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-sm text-gray-200">Beta</span>
+                    <span className="text-sm text-gray-300">Estimated release: Q4</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => {
+                        const waitlistSection = document.getElementById("waitlist");
+                        if (waitlistSection) waitlistSection.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
+                    >
+                      Join Waitlist
+                    </button>
+                    <button className="text-sm text-gray-300 hover:text-white">Learn more</button>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
           return Array.from({ length: placeholders }).map((_, i) => (
             <div
               key={`placeholder-${i}`}
