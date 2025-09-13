@@ -135,7 +135,7 @@ export default function Roadmaps() {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">More roadmaps coming soon</h3>
-                      <div className="mt-1 text-sm text-gray-300">We're building new learning paths — sign up to be notified when they launch.</div>
+                      <div className="mt-1 text-sm text-gray-300">We&apos;re building new learning paths — sign up to be notified when they launch.</div>
                     </div>
                   </div>
                   <p className="text-gray-400 mb-4">Expect deep, structured roadmaps covering trending domains and practical projects tailored for aspiring technical leaders.</p>
@@ -143,7 +143,7 @@ export default function Roadmaps() {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-sm text-gray-400">Stay in the loop — we'll notify when new roadmaps arrive.</span>
+                    <span className="text-sm text-gray-400">Stay in the loop — we&apos;ll notify when new roadmaps arrive.</span>
                   </div>
                   <div>
                     <button
@@ -169,7 +169,7 @@ export default function Roadmaps() {
               <div>
                 <div className="h-2 bg-gradient-to-r from-gray-600 to-gray-700 rounded-t-md mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-2">More roadmaps coming soon</h3>
-                <p className="text-gray-300 mb-4">We're expanding our learning paths — new roadmaps will be added shortly to help you master more topics.</p>
+                <p className="text-gray-300 mb-4">We&apos;re expanding our learning paths — new roadmaps will be added shortly to help you master more topics.</p>
               </div>
 
               <div className="flex items-center justify-between">
