@@ -24,18 +24,18 @@ export default function Instructor() {
         {/* Main Content */}
         <ScrollReveal direction="up" duration={0.8} delay={0.2}>
           <div className="max-w-7xl mx-auto">
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/50 overflow-hidden">
-              <div className="p-6 sm:p-8 lg:p-12">
+            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/50 overflow-visible">
+              <div className="p-6 sm:p-8 lg:p-12 relative">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
 
                   {/* Left Side: Photo (stacked on mobile) */}
-                  <div className="flex flex-col items-center space-y-6 order-1 lg:order-none">
+                  <div className="flex flex-col items-center space-y-6 order-1 lg:order-none lg:justify-end">
                     <div className="relative">
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 opacity-10 blur-3xl" />
                       </div>
-                      <div className="relative z-10">
-                        <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto">
+                      <div className="relative z-10 lg:absolute lg:bottom-0 lg:left-12 lg:transform lg:translate-y-12">
+                        <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto lg:mx-0">
                           {instructor.avatar ? (
                             <Image
                               src={instructor.avatar}
@@ -65,7 +65,7 @@ export default function Instructor() {
                   </div>
 
                   {/* Right Side: Content */}
-                  <div className="text-center lg:text-left order-2 lg:order-none">
+                  <div className="text-center lg:text-left order-2 lg:order-none lg:pl-24">
                     <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
                       {instructor.name}
                     </h3>
