@@ -9,7 +9,7 @@ export default function Instructor() {
   const { instructor } = landingPageConfig;
 
   return (
-    <section className="py-16 md:py-24 bg-gray-900">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-900">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <ScrollReveal direction="up" duration={0.6}>
@@ -24,85 +24,75 @@ export default function Instructor() {
         {/* Main Content */}
         <ScrollReveal direction="up" duration={0.8} delay={0.2}>
           <div className="max-w-7xl mx-auto">
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/50 overflow-visible">
-              <div className="p-6 sm:p-8 lg:p-12 relative">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
+            <div className="relative bg-gray-800/40 backdrop-blur rounded-2xl shadow-2xl border border-gray-700/40 overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 lg:p-12 items-center">
 
-                  {/* Left Side: Photo (stacked on mobile) */}
-                  <div className="flex flex-col items-center space-y-6 order-1 lg:order-none lg:justify-end">
-                    <div className="relative">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 opacity-10 blur-3xl" />
+                {/* Avatar Column */}
+                <div className="lg:col-span-4 flex justify-center lg:justify-start">
+                  <div className="relative -mt-12 lg:mt-0">
+                    <div className="rounded-xl p-2 bg-gradient-to-br from-white/3 to-transparent shadow-lg">
+                      <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden ring-2 ring-gray-700/60 bg-gradient-to-br from-blue-600 to-purple-600">
+                        {instructor.avatar ? (
+                          <Image
+                            src={instructor.avatar}
+                            alt={`${instructor.name} avatar`}
+                            width={400}
+                            height={400}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-white/90">
+                            <svg className="w-24 h-24" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                        )}
                       </div>
-                      <div className="relative z-10 lg:absolute lg:bottom-0 lg:left-12 lg:transform lg:translate-y-12">
-                        <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 mx-auto lg:mx-0">
-                          {instructor.avatar ? (
-                            <Image
-                              src={instructor.avatar}
-                              alt={instructor.name}
-                              width={320}
-                              height={320}
-                              className="w-full h-full object-cover rounded-full border-4 border-transparent shadow-2xl"
-                            />
-                          ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
-                              <svg
-                                className="w-24 h-24 sm:w-28 sm:h-28 text-white/80"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-                      </div>
+                    </div>
+                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 lg:static lg:translate-x-0 lg:left-0 lg:bottom-auto">
+                      <div className="hidden lg:block w-28 h-28 rounded-lg bg-gradient-to-br from-blue-700 to-purple-700 opacity-8 blur-2xl -z-10" />
                     </div>
                   </div>
+                </div>
 
-                  {/* Right Side: Content */}
-                  <div className="text-center lg:text-left order-2 lg:order-none lg:pl-24">
-                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
-                      {instructor.name}
-                    </h3>
-                    <p className="text-xl sm:text-2xl text-blue-400 font-semibold mb-6">
-                      {instructor.role}
-                    </p>
+                {/* Content Column */}
+                <div className="lg:col-span-8 text-center lg:text-left">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-1">
+                    {instructor.name}
+                  </h3>
+                  <p className="text-lg sm:text-xl text-blue-300 font-medium mb-6">
+                    {instructor.role}
+                  </p>
 
-                    {/* Key Stats - Horizontal Row (sourced from config) */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4 mb-8">
-                      {(instructor.stats || []).map((stat, idx) => (
-                        <div key={idx} className="text-center lg:text-left p-4 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                          <div className="text-2xl lg:text-3xl font-bold text-white">{stat.value}</div>
-                          <div className="text-sm text-gray-400">{stat.label}</div>
-                        </div>
-                      ))}
-                    </div>
+                  {/* Key Stats */}
+                  <div className="flex flex-col sm:flex-row sm:items-stretch gap-4 mb-6">
+                    {(instructor.stats || []).map((stat, idx) => (
+                      <div key={idx} className="flex-1 bg-gray-800/60 border border-gray-700/40 rounded-lg p-4 flex flex-col items-center sm:items-start">
+                        <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
+                        <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
 
-                    {/* Bio - Left Aligned */}
-                    <div className="text-gray-300 leading-relaxed space-y-4 mb-8 text-left">
-                      {instructor.bio.map((paragraph, index) => (
-                        <p key={index} className="text-base lg:text-lg">
-                          {paragraph}
-                        </p>
-                      ))}
-                    </div>
+                  {/* Bio */}
+                  <div className="text-gray-300 leading-relaxed space-y-4 mb-6 text-left">
+                    {instructor.bio.map((paragraph, index) => (
+                      <p key={index} className="text-sm sm:text-base">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
 
-                    {/* Credentials */}
-                    <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                      {instructor.credentials.map((credential, index) => (
-                        <span
-                          key={index}
-                          className={`px-4 py-2 rounded-full text-sm font-medium ${credential.color}`}
-                        >
-                          {credential.text}
-                        </span>
-                      ))}
-                    </div>
+                  {/* Credentials / Badges */}
+                  <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                    {instructor.credentials.map((credential, index) => (
+                      <span
+                        key={index}
+                        className={`px-3 py-1.5 rounded-full text-sm font-medium bg-gray-800/50 border border-gray-700/30 text-gray-200 ${credential.color}`}
+                      >
+                        {credential.text}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
