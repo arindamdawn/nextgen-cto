@@ -96,7 +96,7 @@ const RoadmapCard = ({
 
 export default function Roadmaps() {
   const { roadmaps } = landingPageConfig;
-  
+
   // Temporarily disable all motion animations
   return (
     <div className="container mx-auto px-4">
@@ -126,17 +126,9 @@ export default function Roadmaps() {
             return (
               <div key={`placeholder-span`} className="relative bg-gradient-to-br from-gray-800/60 via-gray-800/40 to-transparent backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/40 overflow-hidden p-6 flex flex-col justify-between md:col-span-2 lg:col-span-2">
                 <div>
-                  <div className="inline-flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-md">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M2 11a1 1 0 011-1h2a1 1 0 010 2H4v5a1 1 0 01-2 0v-6z" />
-                        <path d="M7 7a1 1 0 011-1h8a1 1 0 110 2H9a1 1 0 01-1-1z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">More roadmaps coming soon</h3>
-                      <div className="mt-1 text-sm text-gray-300">We&apos;re building new learning paths — sign up to be notified when they launch.</div>
-                    </div>
+                  <div className="mb-4">
+                    <h3 className="text-2xl font-bold text-white">More roadmaps coming soon</h3>
+                    <div className="mt-1 text-sm text-gray-300">We&apos;re building new learning paths — sign up to be notified when they launch.</div>
                   </div>
                   <p className="text-gray-400 mb-4">Expect deep, structured roadmaps covering trending domains and practical projects tailored for aspiring technical leaders.</p>
                 </div>
