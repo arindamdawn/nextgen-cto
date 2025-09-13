@@ -115,6 +115,38 @@ export default function Roadmaps() {
         {roadmaps.data.map((roadmap, index) => (
           <RoadmapCard key={roadmap.id} roadmap={roadmap} index={index} />
         ))}
+
+        {/* If the final row is incomplete, render placeholder cards to fill the grid */}
+        {(() => {
+          const perRow = 3;
+          const remainder = roadmaps.data.length % perRow;
+          const placeholders = remainder === 0 ? 0 : perRow - remainder;
+          return Array.from({ length: placeholders }).map((_, i) => (
+            <div
+              key={`placeholder-${i}`}
+              className="relative bg-gray-800/30 backdrop-blur-sm rounded-2xl shadow-inner border border-dashed border-gray-700/40 overflow-hidden p-6 flex flex-col justify-between"
+            >
+              <div>
+                <div className="h-2 bg-gradient-to-r from-gray-600 to-gray-700 rounded-t-md mb-4" />
+                <h3 className="text-2xl font-bold text-white mb-2">More roadmaps coming soon</h3>
+                <p className="text-gray-300 mb-4">We're expanding our learning paths — new roadmaps will be added shortly to help you master more topics.</p>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-400">Stay in the loop</span>
+                <button
+                  onClick={() => {
+                    const waitlistSection = document.getElementById("waitlist");
+                    if (waitlistSection) waitlistSection.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
+                >
+                  Join Waitlist
+                </button>
+              </div>
+            </div>
+          ));
+        })()}
       </div>
 
       {/* Call to Action */}
