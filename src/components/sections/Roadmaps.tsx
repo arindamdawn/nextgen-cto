@@ -1,6 +1,7 @@
 "use client";
 
 // import { motion } from "framer-motion";
+import { useState } from "react";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import ScrollReveal from "../animations/ScrollReveal";
 import { Roadmap } from "@/types";
@@ -15,13 +16,16 @@ const RoadmapCard = ({
   roadmap: Roadmap;
   index: number;
 }) => {
-  // Temporarily disable all motion animations
+  const [showAllSteps, setShowAllSteps] = useState(false);
+  const PREVIEW_COUNT = 6;
+
+  // Make card fill available height and distribute content vertically
   return (
-    <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/50 overflow-hidden group hover:shadow-xl hover:border-gray-600/50 transition-all duration-300">
+    <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/50 overflow-hidden group hover:shadow-xl hover:border-gray-600/50 transition-all duration-300 h-full">
       {/* Gradient Header */}
       <div className={cn("h-2 bg-gradient-to-r", roadmap.color)} />
 
-      <div className="p-4 sm:p-6">
+      <div className="p-4 sm:p-6 flex flex-col justify-between h-full">
         {/* Card Header */}
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-2xl font-bold text-white">{roadmap.title}</h3>
@@ -42,18 +46,13 @@ const RoadmapCard = ({
 
         {/* Timeline Steps */}
         <div className="space-y-3">
-          {roadmap.steps.map((step, stepIndex) => (
-            <div
-              key={step.id}
-              className="flex items-center gap-3 group/step"
-            >
+          {(showAllSteps ? roadmap.steps : roadmap.steps.slice(0, PREVIEW_COUNT)).map((step, stepIndex) => (
+            <div key={step.id} className="flex items-center gap-3 group/step">
               {/* Step Number */}
-              <div
-                className={cn(
-                  "flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r flex items-center justify-center text-white text-sm font-semibold",
-                  roadmap.color
-                )}
-              >
+              <div className={cn(
+                "flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r flex items-center justify-center text-white text-sm font-semibold",
+                roadmap.color
+              )}>
                 {stepIndex + 1}
               </div>
 
@@ -66,6 +65,18 @@ const RoadmapCard = ({
               </div>
             </div>
           ))}
+
+          {roadmap.steps.length > PREVIEW_COUNT && (
+            <div className="pt-2">
+              <button
+                onClick={() => setShowAllSteps(!showAllSteps)}
+                className="text-sm text-blue-400 hover:text-blue-300 font-medium"
+                aria-expanded={showAllSteps}
+              >
+                {showAllSteps ? `Show less` : `Show ${roadmap.steps.length - PREVIEW_COUNT} more`}
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Progress Bar */}
