@@ -7,7 +7,7 @@ import { landingPageConfig } from '@/config/landingPageConfig';
 
 export default function Instructor() {
   const { instructor } = landingPageConfig;
-  
+
   return (
     <section className="py-16 md:py-24 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -73,20 +73,14 @@ export default function Instructor() {
                       {instructor.role}
                     </p>
 
-                    {/* Key Stats - Horizontal Row */}
+                    {/* Key Stats - Horizontal Row (sourced from config) */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4 mb-8">
-                      <div className="text-center lg:text-left p-4 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                        <div className="text-2xl lg:text-3xl font-bold text-white">1000+</div>
-                        <div className="text-sm text-gray-400">Engineers Mentored</div>
-                      </div>
-                      <div className="text-center lg:text-left p-4 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                        <div className="text-2xl lg:text-3xl font-bold text-white">8+</div>
-                        <div className="text-sm text-gray-400">Years Experience</div>
-                      </div>
-                      <div className="text-center lg:text-left p-4 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                        <div className="text-2xl lg:text-3xl font-bold text-white">FAANG</div>
-                        <div className="text-sm text-gray-400">Experience</div>
-                      </div>
+                      {(instructor.stats || []).map((stat, idx) => (
+                        <div key={idx} className="text-center lg:text-left p-4 bg-gray-700/30 rounded-lg border border-gray-600/30">
+                          <div className="text-2xl lg:text-3xl font-bold text-white">{stat.value}</div>
+                          <div className="text-sm text-gray-400">{stat.label}</div>
+                        </div>
+                      ))}
                     </div>
 
                     {/* Bio - Left Aligned */}
@@ -101,7 +95,7 @@ export default function Instructor() {
                     {/* Credentials */}
                     <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                       {instructor.credentials.map((credential, index) => (
-                        <span 
+                        <span
                           key={index}
                           className={`px-4 py-2 rounded-full text-sm font-medium ${credential.color}`}
                         >

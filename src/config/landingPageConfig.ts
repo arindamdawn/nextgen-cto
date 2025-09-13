@@ -25,6 +25,10 @@ export interface InstructorConfig {
     text: string;
     color: string;
   }>;
+  stats?: Array<{
+    value: string;
+    label: string;
+  }>;
   avatar?: string;
 }
 
@@ -292,6 +296,12 @@ export const landingPageConfig: LandingPageConfig = {
       { text: "Ex-Adobe & Intuit", color: "bg-blue-100 text-blue-800" },
       { text: "7000+ Engineers Mentored", color: "bg-green-100 text-green-800" },
       { text: "9+ Years in Tech Leadership", color: "bg-purple-100 text-purple-800" }
+    ]
+    ,
+    stats: [
+      { value: "1000+", label: "Engineers Mentored" },
+      { value: "8+", label: "Years Experience" },
+      { value: "Top Product MNCs", label: "Experience" }
     ]
   },
   testimonials: {
