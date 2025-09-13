@@ -145,7 +145,7 @@ export default function Roadmaps() {
                   <div>
                     <span className="text-sm text-gray-400">Stay in the loop — we'll notify when new roadmaps arrive.</span>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div>
                     <button
                       onClick={() => {
                         const waitlistSection = document.getElementById("waitlist");
@@ -155,7 +155,6 @@ export default function Roadmaps() {
                     >
                       Join Waitlist
                     </button>
-                    <button className="text-sm text-gray-300 hover:text-white">Learn more</button>
                   </div>
                 </div>
               </div>
