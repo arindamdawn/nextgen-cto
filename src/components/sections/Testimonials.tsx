@@ -185,33 +185,6 @@ export default function Testimonials() {
           </p>
         </div>
       </div>
-
-      {/* Additional testimonials preview on larger screens */}
-      <div className="hidden lg:block mt-12 xl:mt-16">
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto px-4">
-            {testimonials.data.slice(0, 3).map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 p-4 lg:p-6 shadow-md hover:shadow-lg hover:border-gray-600/50 transition-all duration-300"
-              >
-                <div className="flex items-center mb-3 lg:mb-4">
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm lg:text-base mr-3 flex-shrink-0">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="font-semibold text-sm lg:text-base text-white truncate">{testimonial.name}</div>
-                    <div className="text-xs lg:text-sm text-gray-300 truncate">{testimonial.role}</div>
-                  </div>
-                </div>
-                <p className="text-sm lg:text-base text-gray-200 line-clamp-3 leading-relaxed">
-                  &ldquo;{testimonial.feedback.substring(0, 120)}...&rdquo;
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
