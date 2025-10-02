@@ -374,12 +374,12 @@ export const landingPageConfig: LandingPageConfig = {
       },
       {
         name: 'LinkedIn',
-        href: 'https://linkedin.com/company/nextgencto',
+        href: 'https://www.linkedin.com/company/next-gen-cto',
         icon: 'linkedin'
       },
       {
         name: 'GitHub',
-        href: 'https://github.com/nextgencto',
+        href: 'https://github.com/team-codebug/',
         icon: 'github'
       },
       {

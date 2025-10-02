@@ -81,6 +81,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//www.youtube.com" />
         <link rel="dns-prefetch" href="//i.ytimg.com" />
+
+        {/* Favicon / Touch Icons - use the provided logo in public/images */}
+        <meta name="apple-mobile-web-app-title" content="next-gen-cto" />
         
         {/* Structured Data */}
         <script
@@ -94,7 +97,7 @@ export default function RootLayout({
               "url": process.env.NEXT_PUBLIC_SITE_URL || "https://nextgen-cto.com",
               "logo": {
                 "@type": "ImageObject",
-                "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://nextgen-cto.com"}/logo.png`
+                "url": `${process.env.NEXT_PUBLIC_SITE_URL || "https://nextgen-cto.com"}/images/next-gen-cto-logo.png`
               },
               "offers": {
                 "@type": "Offer",

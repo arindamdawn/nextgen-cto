@@ -42,7 +42,7 @@ export default function Testimonials() {
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -85,7 +85,7 @@ export default function Testimonials() {
         </div>
       </ScrollReveal>
 
-      <div 
+      <div
         ref={containerRef}
         className="relative max-w-4xl mx-auto px-2 sm:px-4 focus:outline-none"
         tabIndex={0}
@@ -157,11 +157,10 @@ export default function Testimonials() {
               <button
                 key={index}
                 onClick={() => goToTestimonial(index)}
-                className={`min-w-[44px] min-h-[44px] w-4 h-4 sm:w-3 sm:h-3 rounded-full transition-all duration-300 flex items-center justify-center ${
-                  index === currentIndex
+                className={`min-w-[44px] min-h-[44px] w-4 h-4 sm:w-3 sm:h-3 rounded-full transition-all duration-300 flex items-center justify-center ${index === currentIndex
                     ? 'bg-blue-500 scale-110 ring-2 ring-blue-400/50'
                     : 'bg-gray-500 hover:bg-gray-400'
-                }`}
+                  }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}

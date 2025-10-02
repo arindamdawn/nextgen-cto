@@ -27,12 +27,12 @@ export default function SEO({
     "url": typeof window !== 'undefined' ? window.location.origin : '',
     "logo": {
       "@type": "ImageObject",
-      "url": `${typeof window !== 'undefined' ? window.location.origin : ''}/logo.png`
+      "url": `${typeof window !== 'undefined' ? window.location.origin : ''}/images/next-gen-cto-logo.png`
     },
     "sameAs": [
       "https://twitter.com/nextgencto",
-      "https://linkedin.com/company/nextgencto",
-      "https://github.com/nextgencto"
+      "https://www.linkedin.com/company/next-gen-cto",
+      "https://github.com/team-codebug/"
     ],
     "offers": {
       "@type": "Offer",
@@ -113,10 +113,10 @@ export default function SEO({
       />
       
       {/* Favicon and App Icons */}
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/x-icon" href="/images/next-gen-cto-logo.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/images/next-gen-cto-logo.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/images/next-gen-cto-logo.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/images/next-gen-cto-logo.png" />
       <link rel="manifest" href="/site.webmanifest" />
     </Head>
   );
