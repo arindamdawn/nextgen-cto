@@ -15,6 +15,7 @@ const navigationItems: NavigationItem[] = [
   { id: 'hero', label: 'Home', section: 'hero' },
   { id: 'roadmaps', label: 'Roadmaps', section: 'roadmaps' },
   { id: 'instructor', label: 'Instructor', section: 'instructor' },
+  { id: 'team', label: 'Team', section: 'team' },
   { id: 'testimonials', label: 'Reviews', section: 'testimonials' },
   { id: 'waitlist', label: 'Join Waitlist', section: 'waitlist' },
 ];

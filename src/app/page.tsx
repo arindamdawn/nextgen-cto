@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Hero from "@/components/sections/Hero";
 import Roadmaps from "@/components/sections/Roadmaps";
 import Instructor from "@/components/sections/Instructor";
+import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
 import Waitlist from "@/components/sections/Waitlist";
 import Footer from "@/components/sections/Footer";
@@ -139,6 +140,16 @@ export default function Home() {
               className={`py-16 md:py-24 lg:py-32 ${sections.instructor.backgroundColor}`}
             >
               <Instructor />
+            </section>
+          </ErrorBoundary>
+
+          {/* Team Section */}
+          <ErrorBoundary>
+            <section 
+              id="team" 
+              className={`py-16 md:py-24 lg:py-32 ${sections.team.backgroundColor}`}
+            >
+              <Team />
             </section>
           </ErrorBoundary>
 

@@ -28,6 +28,21 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // Ignore HMR-related errors in development
+    if (process.env.NODE_ENV === 'development') {
+      const errorMessage = error.message || '';
+      const isHMRError = 
+        errorMessage.includes('module factory is not available') ||
+        errorMessage.includes('HMR') ||
+        errorMessage.includes('Cannot access') ||
+        errorMessage.includes('Fast Refresh');
+      
+      if (isHMRError) {
+        console.warn('HMR Error detected, ignoring:', error.message);
+        return;
+      }
+    }
+
     this.setState({
       error,
       errorInfo,

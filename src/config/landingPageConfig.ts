@@ -32,6 +32,26 @@ export interface InstructorConfig {
   avatar?: string;
 }
 
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string;
+  avatar?: string;
+  credentials: string[];
+  socialLinks?: {
+    linkedin?: string;
+    twitter?: string;
+    github?: string;
+  };
+}
+
+export interface TeamConfig {
+  title: string;
+  subtitle: string;
+  members: TeamMember[];
+}
+
 export interface WaitlistConfig {
   title: string;
   subtitle: string;
@@ -74,6 +94,10 @@ export interface SectionConfig {
     title: string;
     backgroundColor: string;
   };
+  team: {
+    title: string;
+    backgroundColor: string;
+  };
   testimonials: {
     title: string;
     backgroundColor: string;
@@ -96,6 +120,7 @@ export interface LandingPageConfig {
     };
   };
   instructor: InstructorConfig;
+  team: TeamConfig;
   testimonials: {
     title: string;
     subtitle: string;
@@ -304,6 +329,54 @@ export const landingPageConfig: LandingPageConfig = {
       { value: "Top Product MNCs", label: "Experience" }
     ]
   },
+  // Team Section Configuration
+  // To add more team members, simply add new objects to the members array below
+  // Each member should have:
+  // - id: unique identifier (use lowercase-hyphenated format)
+  // - name: full name of the team member
+  // - role: their position/title
+  // - bio: a brief description of their background and expertise
+  // - avatar: path to their profile image (optional, defaults to placeholder)
+  // - credentials: array of achievements/qualifications (optional)
+  // - socialLinks: object with linkedin, twitter, github URLs (optional)
+  team: {
+    title: "Meet Our Team",
+    subtitle: "Passionate experts dedicated to building the next generation of technical leaders",
+    members: [
+      {
+        id: "anuj-kumar",
+        name: "Anuj Kumar",
+        role: "Founder & CEO",
+        bio: "9+ years of software development experience. Ex-Adobe, Ex-Intuit, former CTO at Monet (Web3 startup, Dubai). Instructor at Newton School, trained 1000s in DSA & system design. YouTube educator with 500+ videos (400+ on DSA), 5.7K+ subscribers. Built a thriving WhatsApp community (500+) and 6.2K+ followers on Instagram.",
+        avatar: "/images/anuj-kumar-profile-image.jpeg",
+        credentials: [
+          "Ex-Adobe & Intuit",
+          "Ex-CTO Monet",
+          "Instructor @NewtonSchool",
+          "5.7K+ YouTube Subscribers"
+        ],
+        socialLinks: {
+          linkedin: "https://www.linkedin.com/in/anuj-kumar",
+          twitter: "https://twitter.com/anujkumar",
+          github: "https://github.com/anujkumar"
+        }
+      }
+      // Add more team members here following the same structure
+      // Example:
+      // {
+      //   id: "jane-doe",
+      //   name: "Jane Doe",
+      //   role: "Head of Engineering",
+      //   bio: "Expert in distributed systems...",
+      //   avatar: "/images/jane-doe.jpg",
+      //   credentials: ["Ex-Google", "10+ Years Experience"],
+      //   socialLinks: {
+      //     linkedin: "https://www.linkedin.com/in/janedoe",
+      //     twitter: "https://twitter.com/janedoe"
+      //   }
+      // }
+    ]
+  },
   testimonials: {
     title: "What Our Students Say",
     subtitle: "Join thousands of professionals who have transformed their careers with NextGen-CTO",
@@ -402,6 +475,10 @@ export const landingPageConfig: LandingPageConfig = {
     instructor: {
       title: "Instructor",
       backgroundColor: "bg-gray-900"
+    },
+    team: {
+      title: "Team",
+      backgroundColor: "bg-gray-800/30"
     },
     testimonials: {
       title: "Testimonials",
