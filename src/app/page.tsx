@@ -19,7 +19,7 @@ import { landingPageConfig } from "@/config/landingPageConfig";
 
 export default function Home() {
   const { sections } = landingPageConfig;
-  const [isLoaded, setIsLoaded] = useState(false);
+  // removed unused isLoaded state
   const [showLoader, setShowLoader] = useState(true);
   const { isVisible: showScrollTop, scrollToTop } = useScrollToTop(400);
   
@@ -44,9 +44,8 @@ export default function Home() {
     
     // Preload critical resources
     const preloadResources = async () => {
-      // Simulate resource loading
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setIsLoaded(true);
+  // Simulate resource loading
+  await new Promise(resolve => setTimeout(resolve, 1000));
     };
 
     preloadResources();

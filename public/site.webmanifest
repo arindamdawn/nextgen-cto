@@ -39,7 +39,10 @@
       "type": "image/png"
     }
   ],
-  "categories": ["education", "productivity"],
+  "categories": [
+    "education",
+    "productivity"
+  ],
   "lang": "en",
   "dir": "ltr"
 }

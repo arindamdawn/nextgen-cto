@@ -65,10 +65,10 @@ export default function SEO({
       <meta name="author" content="NextGen-CTO" />
       <meta name="robots" content="index, follow" />
       <meta name="language" content="English" />
-      
+
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-      
+
       {/* Open Graph Meta Tags */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -77,7 +77,7 @@ export default function SEO({
       <meta property="og:image:alt" content="NextGen-CTO - Master Code, Design, AI & Leadership" />
       <meta property="og:site_name" content="NextGen-CTO" />
       <meta property="og:locale" content="en_US" />
-      
+
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
@@ -86,24 +86,24 @@ export default function SEO({
       <meta name="twitter:image:alt" content="NextGen-CTO - Master Code, Design, AI & Leadership" />
       <meta name="twitter:creator" content="@nextgencto" />
       <meta name="twitter:site" content="@nextgencto" />
-      
+
       {/* Additional Meta Tags for Performance */}
       <meta name="theme-color" content="#3B82F6" />
       <meta name="msapplication-TileColor" content="#3B82F6" />
       <meta name="msapplication-config" content="/browserconfig.xml" />
-      
+
       {/* Preconnect to external domains */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://www.youtube.com" />
       <link rel="preconnect" href="https://i.ytimg.com" />
-      
+
       {/* DNS Prefetch for performance */}
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />
       <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       <link rel="dns-prefetch" href="//www.youtube.com" />
       <link rel="dns-prefetch" href="//i.ytimg.com" />
-      
+
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -111,7 +111,7 @@ export default function SEO({
           __html: JSON.stringify(finalStructuredData),
         }}
       />
-      
+
       {/* Favicon and App Icons */}
       <link rel="icon" type="image/x-icon" href="/images/next-gen-cto-logo.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/images/next-gen-cto-logo.png" />

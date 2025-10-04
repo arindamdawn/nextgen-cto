@@ -75,7 +75,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://i.ytimg.com" />
-        
+
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
@@ -84,7 +84,7 @@ export default function RootLayout({
 
         {/* Favicon / Touch Icons - use the provided logo in public/images */}
         <meta name="apple-mobile-web-app-title" content="next-gen-cto" />
-        
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -112,7 +112,7 @@ export default function RootLayout({
               "educationalLevel": "Professional Development",
               "teaches": [
                 "Software Engineering",
-                "AI and Machine Learning", 
+                "AI and Machine Learning",
                 "Design Thinking",
                 "Technical Leadership",
                 "System Architecture"

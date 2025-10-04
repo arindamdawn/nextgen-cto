@@ -35,9 +35,14 @@ export async function POST(request: NextRequest) {
         success: true,
         message: `Thanks for joining${name ? `, ${name}` : ''}! We'll notify you when courses are available.`
       });
-    } catch (dbError: any) {
+    } catch (dbError: unknown) {
       // Handle duplicate email error
-      if (dbError.code === 'P2002') {
+      if (
+        typeof dbError === 'object' &&
+        dbError !== null &&
+        'code' in dbError &&
+  (dbError as { code?: string }).code === 'P2002'
+      ) {
         return NextResponse.json({
           success: false,
           message: 'This email is already on our waitlist!'
