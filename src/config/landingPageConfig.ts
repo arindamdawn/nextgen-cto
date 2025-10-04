@@ -356,9 +356,26 @@ export const landingPageConfig: LandingPageConfig = {
           "5.7K+ YouTube Subscribers"
         ],
         socialLinks: {
-          linkedin: "https://www.linkedin.com/in/anuj-kumar",
+          linkedin: "https://www.linkedin.com/in/anuj-kumar-9a188968",
           twitter: "https://twitter.com/anujkumar",
           github: "https://github.com/anujkumar"
+        }
+      },
+      {
+        id: "ayush-singh",
+        name: "Ayush Singh",
+        role: "Sales & Growth Associate",
+        bio: "Driving sales enablement, social media growth, and content operations at NextGen CTO. Skilled in YouTube, Instagram, LinkedIn & WhatsApp community building, with hands-on experience in content strategy, video editing, and growth analytics. Supporting top-of-funnel sales activities, lead generation, and CRM management with measurable KPIs. Passionate about scaling digital communities and creating content that converts views into leads.",
+        avatar: "/images/ayush-singh-profile-image.jpeg",
+        credentials: [
+          "Sales & Growth Expert",
+          "Community Building Specialist",
+          "Content Strategy & Video Editing",
+          "CRM & Lead Generation"
+        ],
+        socialLinks: {
+          linkedin: "https://www.linkedin.com/in/ayushsingh-profile",
+          twitter: "https://twitter.com/ayushsingh"
         }
       }
       // Add more team members here following the same structure
