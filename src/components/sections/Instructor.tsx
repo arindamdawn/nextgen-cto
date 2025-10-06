@@ -29,7 +29,7 @@ export default function Instructor() {
 
                 {/* Avatar Column */}
                 <div className="lg:col-span-4 flex justify-center lg:justify-start">
-                  <div className="relative -mt-12 lg:mt-0">
+                  <div className="relative mt-0 lg:-mt-12">
                     <div className="rounded-xl p-2 bg-gradient-to-br from-white/3 to-transparent shadow-lg">
                       <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden ring-2 ring-gray-700/60 bg-gradient-to-br from-blue-600 to-purple-600">
                         {instructor.avatar ? (
