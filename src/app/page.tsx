@@ -23,7 +23,7 @@ export default function Home() {
   // removed unused isLoaded state
   const [showLoader, setShowLoader] = useState(true);
   const { isVisible: showScrollTop, scrollToTop } = useScrollToTop(400);
-  
+
   // Performance monitoring
   usePerformanceMonitoring({
     enableLogging: process.env.NODE_ENV === 'development',
@@ -39,18 +39,18 @@ export default function Home() {
   useEffect(() => {
     // Enable smooth scrolling for the entire page
     document.documentElement.style.scrollBehavior = 'smooth';
-    
+
     // Add scroll padding for smooth navigation
     document.documentElement.style.scrollPaddingTop = '2rem';
-    
+
     // Preload critical resources
     const preloadResources = async () => {
-  // Simulate resource loading
-  await new Promise(resolve => setTimeout(resolve, 1000));
+      // Simulate resource loading
+      await new Promise(resolve => setTimeout(resolve, 1000));
     };
 
     preloadResources();
-    
+
     // Cleanup function to reset scroll behavior
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
@@ -85,14 +85,14 @@ export default function Home() {
     <PerformanceOptimizer enableOptimizations={true}>
       {/* Page Loader */}
       {showLoader && <PageLoader onLoadComplete={handleLoadComplete} />}
-      
-      <main 
+
+      <main
         className="min-h-screen overflow-x-hidden"
         key="main-page"
       >
         {/* Scroll Progress Indicator */}
         <ScrollProgress />
-        
+
         {/* Section Navigation */}
         <SectionNavigation />
 
@@ -103,8 +103,8 @@ export default function Home() {
               <div className="text-center p-8">
                 <h1 className="text-4xl font-bold text-gray-900 mb-4">Welcome to NextGen-CTO</h1>
                 <p className="text-xl text-gray-600 mb-6">Master Code, Design, AI & Leadership</p>
-                <button 
-                  onClick={() => window.location.reload()} 
+                <button
+                  onClick={() => window.location.reload()}
                   className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Refresh Page
@@ -113,8 +113,8 @@ export default function Home() {
             </section>
           }
         >
-          <section 
-            id="hero" 
+          <section
+            id="hero"
             className={`relative min-h-screen flex items-center justify-center ${sections.hero.backgroundColor}`}
           >
             <Hero />
@@ -125,8 +125,8 @@ export default function Home() {
         <div className="relative z-10">
           {/* Roadmaps Section */}
           <ErrorBoundary>
-            <section 
-              id="roadmaps" 
+            <section
+              id="roadmaps"
               className={`py-16 md:py-24 lg:py-32 ${sections.roadmaps.backgroundColor}`}
             >
               <Roadmaps />
@@ -135,8 +135,8 @@ export default function Home() {
 
           {/* Instructor Section */}
           <ErrorBoundary>
-            <section 
-              id="instructor" 
+            <section
+              id="instructor"
               className={`py-16 md:py-24 lg:py-32 ${sections.instructor.backgroundColor}`}
             >
               <Instructor />
@@ -145,8 +145,8 @@ export default function Home() {
 
           {/* Team Section */}
           <ErrorBoundary>
-            <section 
-              id="team" 
+            <section
+              id="team"
               className={`py-16 md:py-24 lg:py-32 ${sections.team.backgroundColor}`}
             >
               <Team />
@@ -155,8 +155,8 @@ export default function Home() {
 
           {/* Testimonials Section */}
           <ErrorBoundary>
-            <section 
-              id="testimonials" 
+            <section
+              id="testimonials"
               className={`py-16 md:py-24 lg:py-32 ${sections.testimonials.backgroundColor}`}
             >
               <Testimonials />
@@ -165,15 +165,15 @@ export default function Home() {
 
           {/* Waitlist Section */}
           <ErrorBoundary>
-            <section 
-              id="waitlist" 
+            <section
+              id="waitlist"
               className={`py-16 md:py-24 lg:py-32 ${sections.waitlist.backgroundColor} relative overflow-hidden`}
             >
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
               <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
               <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-              
+
               <div className="relative z-10">
                 <Waitlist />
               </div>
@@ -193,22 +193,22 @@ export default function Home() {
             onClick={scrollToTop}
             aria-label="Scroll to top"
           >
-            <svg 
-              className="w-6 h-6" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M5 10l7-7m0 0l7 7m-7-7v18" 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
               />
             </svg>
           </button>
         )}
-        </main>
+      </main>
     </PerformanceOptimizer>
   );
 }

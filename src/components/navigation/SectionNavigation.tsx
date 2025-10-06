@@ -30,17 +30,17 @@ export default function SectionNavigation() {
     // const checkMobile = () => {
     //   setIsMobile(window.innerWidth < 768);
     // };
-    
+
     // checkMobile();
     // window.addEventListener('resize', checkMobile);
-    
+
     // return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
-      
+
       // Show navigation after scrolling past hero
       setIsVisible(scrollPosition > window.innerHeight * 0.3);
 
@@ -95,11 +95,10 @@ export default function SectionNavigation() {
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.section)}
-                  className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
-                    activeSection === item.id
+                  className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${activeSection === item.id
                       ? 'text-white'
                       : 'text-gray-300 hover:text-white'
-                  }`}
+                    }`}
                 >
                   {activeSection === item.id && (
                     <motion.div
@@ -155,11 +154,10 @@ export default function SectionNavigation() {
                       <motion.button
                         key={item.id}
                         onClick={() => handleNavClick(item.section)}
-                        className={`w-full text-left px-6 py-4 text-base font-medium transition-all duration-300 hover:bg-gray-700/50 ${
-                          activeSection === item.id
+                        className={`w-full text-left px-6 py-4 text-base font-medium transition-all duration-300 hover:bg-gray-700/50 ${activeSection === item.id
                             ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-400 border-r-4 border-blue-500'
                             : 'text-gray-200 hover:text-white'
-                        }`}
+                          }`}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}

@@ -31,12 +31,12 @@ class ErrorBoundary extends Component<Props, State> {
     // Ignore HMR-related errors in development
     if (process.env.NODE_ENV === 'development') {
       const errorMessage = error.message || '';
-      const isHMRError = 
+      const isHMRError =
         errorMessage.includes('module factory is not available') ||
         errorMessage.includes('HMR') ||
         errorMessage.includes('Cannot access') ||
         errorMessage.includes('Fast Refresh');
-      
+
       if (isHMRError) {
         console.warn('HMR Error detected, ignoring:', error.message);
         return;
@@ -50,7 +50,7 @@ class ErrorBoundary extends Component<Props, State> {
 
     // Log error to monitoring service
     console.error('ErrorBoundary caught an error:', error, errorInfo);
-    
+
     // Call custom error handler if provided
     this.props.onError?.(error, errorInfo);
 
@@ -95,7 +95,7 @@ class ErrorBoundary extends Component<Props, State> {
             <h1 className="text-2xl font-bold text-gray-900 mb-4">
               Oops! Something went wrong
             </h1>
-            
+
             <p className="text-gray-600 mb-6">
               We encountered an unexpected error. Don&apos;t worry, our team has been notified and we&apos;re working on a fix.
             </p>
