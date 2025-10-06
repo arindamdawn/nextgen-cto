@@ -353,12 +353,12 @@ export const landingPageConfig: LandingPageConfig = {
           "Ex-Adobe & Intuit",
           "Ex-CTO Monet",
           "Instructor @NewtonSchool",
-          "5.7K+ YouTube Subscribers"
+          "7.1K+ YouTube Subscribers"
         ],
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/anuj-kumar-9a188968",
-          twitter: "https://twitter.com/anujkumar",
-          github: "https://github.com/anujkumar"
+          twitter: "https://x.com/AnujKum02768239",
+          github: "https://github.com/anuj070894"
         }
       },
       {
@@ -375,7 +375,7 @@ export const landingPageConfig: LandingPageConfig = {
         ],
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/ayushsingh-profile",
-          twitter: "https://twitter.com/ayushsingh"
+          twitter: "https://x.com/ayush_surat?t=a3QW0Hcea42K3rrU2YSWtA&s=09"
         }
       }
       // Add more team members here following the same structure
